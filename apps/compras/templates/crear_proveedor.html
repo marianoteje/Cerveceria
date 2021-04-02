@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Proveedores | agregar proveedor {% endblock title %}
+{% block content %}
+	
+	<form method="POST">
+	   {% csrf_token %}	
+ 	   <label for="nombre">{{form.nombre.label}}</label>
+ 	   {{ form.nombre}}
+
+ 	   <label for="descripcion">{{form.descripcion.label}}</label>
+ 	   {{ form.descripcion }}
+
+ 	   <label for="telefono">{{form.telefono.label}}</label>
+ 	   {{form.telefono}}
+
+ 	   <label for="email">{{form.email.label}}</label>
+ 	   {{form.email}}
+
+ 	   <label for="direccion">{{form.direccion.label}}</label>
+ 	   {{form.direccion}}
+
+ 	   <button type="submit">Aceptar</button>
+ 	</form>
+
+
+
+
+{% endblock content %}
