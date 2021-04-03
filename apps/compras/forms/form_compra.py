@@ -1,9 +1,11 @@
 from django import forms
-from apps.compras.models import Compra    
+from apps.compras.models import Compra, Proveedor    
 
 class CompraForm(forms.ModelForm):
 
+
     class Meta:
+        
         model = Compra
         fields = ['id_proveedor', 'id_ingrediente','costo','fecha_compra','fecha_vencimiento','cantidad','comentario']
         labels = {
@@ -17,17 +19,15 @@ class CompraForm(forms.ModelForm):
         }
 
         widgets = {
-        		'id_proveedor': forms.TextInput( 
+        		'id_proveedor': forms.Select( 
         			attrs=	{
-        					'placeholder':'Ingrese el nombre del proveedor',
         					'id':'id_proveedor',
                             
         					}
         			),
-        		'id_ingrediente': forms.TextInput( 
+        		'id_ingrediente': forms.Select( 
         			attrs=	{
-        					'placeholder':'Ingrese el ingrediente',
-        					'id':'id_ingrediente'
+        				    'id':'id_ingrediente'
         					}
         			),
                 'costo': forms.NumberInput(
@@ -62,3 +62,5 @@ class CompraForm(forms.ModelForm):
                 )
                 
         }
+
+        
