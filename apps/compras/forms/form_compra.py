@@ -39,12 +39,14 @@ class CompraForm(forms.ModelForm):
                 'fecha_compra': forms.DateInput(
                     attrs={
                             'placeholder':'Ingrese la fecha de compra',
+                            'class': 'form-control',
                             'id':'fecha_compra'
                     }
                 ),
                 'fecha_vencimiento': forms.DateInput(
                     attrs={
                             'placeholder':'Ingrese la fecha de vencimiento',
+                            'class': 'form-control',
                             'id':'fecha_vencimiento'
                     }
                 ),
