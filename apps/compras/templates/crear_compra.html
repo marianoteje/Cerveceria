@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %} Compra | agregar compra {% endblock title %} {% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="id_proveedor">{{form.id_proveedor.label}}</label> {{ form.id_proveedor}}
+
+    <label for="id_ingrediente">{{form.id_ingrediente.label}}</label> {{ form.id_ingrediente }}
+
+    <label for="cantidad">{{form.cantidad.label}}</label> {{ form.cantidad }}
+
+    <label for="costo">{{form.costo.label}}</label> {{ form.costo}}
+
+    <label for="comentario">{{form.comentario.label}}</label> {{ form.comentario }}
+
+    <label for="fecha_vencimiento">{{form.fecha_vencimiento.label}}</label> {{ form.fecha_vencimiento }}
+
+    <label for="fecha_compra">{{form.fecha_compra.label}}</label> {{ form.fecha_compra }}
+
+    <button type="submit">Aceptar</button>
+
+
+</form>
+
+{% endblock content %}

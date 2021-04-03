@@ -3,9 +3,10 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .forms.form_proveedor import ProveedorForm
 from .forms.form_ingredientes import IngredienteForm
+from .forms.form_compra import CompraForm
 from .models import Proveedor
 from .models import Ingrediente
-
+from .models import Compra
 
 class CreateProveedor(CreateView):
     model = Proveedor
@@ -19,5 +20,12 @@ class CreateIngrediente(CreateView):
     form_class = IngredienteForm
     template_name = 'crear_ingrediente.html'
     success_url = reverse_lazy('compras:crear_ingrediente')
+
+
+class CreateCompra(CreateView):
+    model = Compra
+    form_class = CompraForm
+    template_name = 'crear_compra.html'
+    success_url = reverse_lazy('compras:crear_compra')
 
    
