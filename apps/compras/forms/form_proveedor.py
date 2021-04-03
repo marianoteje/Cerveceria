@@ -7,7 +7,7 @@ class ProveedorForm(forms.ModelForm):
         model = Proveedor
         fields = ['nombre', 'descripcion','telefono','email','direccion']
         labels = {
-        		'nombre'  :'Nombre del autor',
+        		'nombre'  :'Nombre del proveedor',
         		'descripcion':'Descripcion',
                 'telefono':'Telefono',
                 'email':'Email',
@@ -17,7 +17,7 @@ class ProveedorForm(forms.ModelForm):
         widgets = {
         		'nombre': forms.TextInput( 
         			attrs=	{
-        					'placeholder':'Ingrese el nombre del autor',
+        					'placeholder':'Ingrese el nombre del proveedor',
         					'id':'nombre',
                             
         					}
