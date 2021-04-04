@@ -11,6 +11,7 @@ class Proveedor (models.Model):
     def __str__(self):
         return self.nombre
 
+
 class Ingrediente (models.Model):
     nombre = models.CharField(max_length=255, null=False, blank=False)
     stock = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Stock en kg')
@@ -18,7 +19,6 @@ class Ingrediente (models.Model):
 
     def __str__(self):
         return self.nombre
-
 
 class Compra (models.Model):
     id_proveedor = models.ForeignKey(Proveedor, on_delete=models.PROTECT, verbose_name='Proveedor')

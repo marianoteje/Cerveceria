@@ -17,13 +17,14 @@ class IngredienteForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese el nombre del ingrediente',
         					'id':'nombre',
-                            
+                            'class':'form-control'
         					}
         			),
         		'stock': forms.TextInput( 
         			attrs=	{
         					'placeholder':'Ingrese el stock',
-        					'id':'stock'
+        					'id':'stock',
+                            'class':'form-control'
         					}
         			)
         }

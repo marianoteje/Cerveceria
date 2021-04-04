@@ -1,0 +1,15 @@
+Listados de ingredientes, provedores, Compras
+
+tabla que muestre los datos y al final tenga un lapiz (editar) y una cruz (eliminar)
+
+Los mismo que el create pero ListView en vez de CreateView
+
+
+
+
+
+git add .
+
+git commit -m "Titulo del commit" -m "Descripcion del commit"
+
+git push (actualiza el repositorio)
