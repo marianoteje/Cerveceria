@@ -1,28 +1,31 @@
-{% extends 'base.html' %}
-{% block title %} Proveedores | agregar proveedor {% endblock title %}
-{% block content %}
-	
-	<form method="POST">
-	   {% csrf_token %}	
- 	   <label for="nombre">{{form.nombre.label}}</label>
- 	   {{ form.nombre}}
-
- 	   <label for="descripcion">{{form.descripcion.label}}</label>
- 	   {{ form.descripcion }}
-
- 	   <label for="telefono">{{form.telefono.label}}</label>
- 	   {{form.telefono}}
-
- 	   <label for="email">{{form.email.label}}</label>
- 	   {{form.email}}
-
- 	   <label for="direccion">{{form.direccion.label}}</label>
- 	   {{form.direccion}}
-
- 	   <button type="submit">Aceptar</button>
- 	</form>
+{% extends 'base.html' %} {% block title %} Proveedores | agregar proveedor {% endblock title %} {% block content %}
 
 
+<div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="id_proveedor">{{form.nombre.label}}</label> {{ form.nombre}}
+        </div>
+        <div class="form-group">
+            <label for="id_ingrediente">{{form.descripcion.label}}</label> {{ form.descripcion }}
+        </div>
+        <div class="form-group">
+            <label for="id_proveedor">{{form.telefono.label}}</label> {{ form.telefono}}
+        </div>
+        <div class="form-group">
+            <label for="id_ingrediente">{{form.email.label}}</label> {{ form.email }}
+        </div>
+        <div class="form-group">
+            <label for="id_proveedor">{{form.direccion.label}}</label> {{ form.direccion}}
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+
+
+    </form>
+</div>
 
 
 {% endblock content %}

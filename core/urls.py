@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from apps.compras.views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('compras/',include(('apps.compras.urls','compras')))
+    path('compras/',include(('apps.compras.urls','compras'))),
+    path('',Home.as_view(), name='index')
 ]

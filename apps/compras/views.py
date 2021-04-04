@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, TemplateView
 from django.urls import reverse_lazy
 from .forms.form_proveedor import ProveedorForm
 from .forms.form_ingredientes import IngredienteForm
 from .forms.form_compra import CompraForm
 from .models import Proveedor,Ingrediente, Compra
 
+class Home(TemplateView):
+    template_name = 'index.html'
 class CreateProveedor(CreateView):
     model = Proveedor
     form_class = ProveedorForm
