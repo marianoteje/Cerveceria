@@ -3,13 +3,25 @@ from apps.compras.models import Compra, Proveedor
 
 class CompraForm(forms.ModelForm):
 
+    
+    def __init__(self,*args,**kwargs):
+        self.qset = Proveedor.objects.filter(activo=1)
+        super(CompraForm,self).__init__(*args,**kwargs)
+        self.fields['id_proveedor'].queryset = self.qset
+        self.fields['id_proveedor'].empty_label='Elija Proveedor'
+
+
 
     class Meta:
         
         model = Compra
-        fields = ['id_proveedor', 'id_ingrediente','costo','fecha_compra','fecha_vencimiento','cantidad','comentario']
+
+        
+
+        fields = ['id_proveedor','id_ingrediente','costo','fecha_compra','fecha_vencimiento','cantidad','comentario']
+        
         labels = {
-        		'id_proveedor'  :'Proveedor',
+        		
         		'id_ingrediente':'Ingrediente',
                 'costo':'Costo',
                 'fecha_compra':'Fecha de compra',
@@ -19,19 +31,20 @@ class CompraForm(forms.ModelForm):
         }
 
         widgets = {
-        		'id_proveedor': forms.Select( 
-        			attrs=	{
-        					'id':'id_proveedor',
-                            'class':'form-control'
-        					}
-        			),
+
+                'id_proveedor': forms.Select(
+                    attrs={
+                            'id':'id_proveedor',                           
+                            'class':'form-control',
+
+                    }),
+        	
         		'id_ingrediente': forms.Select( 
         			attrs=	{
 
-        				    'id':'id_ingrediente'
+        				    'id':'id_ingrediente',
         					'placeholder':'Ingrese el ingrediente',
-        					'id':'id_ingrediente',
-                            'class':'form-control'
+        					'class':'form-control'
 
         					}
         			),
