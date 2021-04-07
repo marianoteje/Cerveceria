@@ -20,5 +20,6 @@ from apps.compras.views import Home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('compras/',include(('apps.compras.urls','compras'))),
+    path('produccion/',include(('apps.produccion.urls','produccion'))),
     path('',Home.as_view(), name='index')
 ]
