@@ -9,11 +9,6 @@ class Barril (models.Model):
     
 
 
-#class CantidadIngredienteProduccion(models.Model):
- #   cantidad = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='Cantidad de ingredientes usados')
-
-  #  def _str_(self):
-##        return self.cantidad
 
 class Produccion (models.Model):
     fecha_produccion = models.DateTimeField(null=False, blank=False, verbose_name='Fecha')
@@ -21,8 +16,14 @@ class Produccion (models.Model):
     temperatura_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura de macerado')
     temperatura_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura cocción')
     tiempo_coccion = models.TimeField(verbose_name='Tiempo de cocción')
-    ingrediente = models.ManyToManyField(Ingrediente)
+    ingrediente = models.ManyToManyField('Ingrediente_Produccion')
     activo = models.BooleanField(default=True)
+
+class Ingrediente_Produccion(models.Model):
+    cantidad = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='Cantidad de ingredientes usados')
+
+    def __str__(self):
+       return self.cantidad
 
 class Fermentado (models.Model):
     fecha_inicio = models.DateTimeField(null=False, blank=False, verbose_name='Fecha inicio')
@@ -30,7 +31,7 @@ class Fermentado (models.Model):
     litros_entrada = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, verbose_name='Litros de entrada')
     litros_salida = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, verbose_name='Litros de salida')
     activo = models.BooleanField(default=True)
-    produccion = models.ForeignKey(Produccion, on_delete=models.PROTECT)
+    produccion = models.ForeignKey(Produccion, null=False, blank=False, default=0, on_delete=models.PROTECT)
 
 class Lote (models.Model):
     fecha_llenado = models.DateTimeField(null=False, blank=False)

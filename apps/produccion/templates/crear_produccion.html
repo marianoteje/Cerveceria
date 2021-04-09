@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block title %} Produccion | agregar Produccion {% endblock title %} {% block content %}
+
+<div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="fecha_inicio">{{form.fecha_produccion.label}}</label> {{ form.fecha_produccion}}
+        </div>
+        <div class="form-group">
+            <label for="fecha_fin">{{form.cantidad_agua.label}}</label> {{ form.cantidad_agua }}
+        </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.temperatura_maceracion.label}}</label> {{ form.temperatura_maceracion}}
+        </div>
+        <div class="form-group">
+            <label for="litros_salida">{{form.temperatura_coccion.label}}</label> {{ form.temperatura_coccion }}
+        </div>
+        <div class="form-group">
+            <label for="produccion">{{form.tiempo_coccion.label}}</label> {{ form.tiempo_coccion }}
+        </div>
+        <div class="form-group">
+            <label for="produccion">{{form.ingrediente.label}}</label> {{ form.ingrediente }}
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+
+</div>
+
+</form>
+</div>
+
+
+{% endblock content %}
