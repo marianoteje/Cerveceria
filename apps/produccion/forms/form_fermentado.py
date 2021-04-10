@@ -16,7 +16,7 @@ class FermentadoForm(forms.ModelForm):
 
         widgets = {
         		'fecha_inicio': forms.DateTimeInput( 
-					input_formats=['%d/%m/%Y %H:%M'],
+					#input_formats=['%d/%m/%Y %H:%M'],
         			attrs=	{
         					'placeholder':'Ingrese la fecha de inicio del fermentado:',
         					'id':'fecha_inicio',
@@ -25,7 +25,7 @@ class FermentadoForm(forms.ModelForm):
         					}
         			),
         		'fecha_fin': forms.DateTimeInput( 
-        			input_formats=['%d/%m/%Y %H:%M'],
+        			#input_formats=['%d/%m/%Y %H:%M'],
         			attrs=	{
         					'placeholder':'Ingrese la fecha de fin del fermentado:',
         					'id':'fecha_inicio',
