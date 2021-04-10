@@ -17,8 +17,8 @@ class AdminFermentado(admin.ModelAdmin):
 
 
 class AdminProduccion(admin.ModelAdmin):
-    fields=('fecha_produccion','cantidad_agua','temperatura_maceracion','temperatura_coccion','tiempo_coccion')
-    list_display = ('id','fecha_produccion','cantidad_agua','temperatura_maceracion','temperatura_coccion','tiempo_coccion')
+    fields=('fecha_produccion','cantidad_agua','temperatura_maceracion','temperatura_coccion','tiempo_coccion', 'ingrediente')
+    list_display = ('id','fecha_produccion','cantidad_agua','temperatura_maceracion','temperatura_coccion','tiempo_coccion', 'ingrediente')
     list_display_links = list_display
 
 class AdminLote(admin.ModelAdmin):

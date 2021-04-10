@@ -9,22 +9,22 @@ class Barril (models.Model):
     
 
 
-
 class Produccion (models.Model):
     fecha_produccion = models.DateTimeField(null=False, blank=False, verbose_name='Fecha')
     cantidad_agua = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='Litros de agua usados')
     temperatura_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura de macerado')
     temperatura_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura cocción')
     tiempo_coccion = models.TimeField(verbose_name='Tiempo de cocción')
-    ingrediente = models.ManyToManyField('Ingrediente_Produccion')
+    ingrediente = models.ForeignKey(Ingrediente,null=False, blank=False,default=0, on_delete=models.PROTECT)
     activo = models.BooleanField(default=True)
 
 class Ingrediente_Produccion(models.Model):
+    ingrediente = models.ForeignKey(Ingrediente, null=False, blank=False, default=0, on_delete=models.PROTECT)
+    produccion = models.ForeignKey(Produccion, null=False, blank=False, default=0, on_delete=models.PROTECT)
     cantidad = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='Cantidad de ingredientes usados')
 
     def __str__(self):
        return self.cantidad
-
 class Fermentado (models.Model):
     fecha_inicio = models.DateTimeField(null=False, blank=False, verbose_name='Fecha inicio')
     fecha_fin = models.DateTimeField(null=False, blank=False, verbose_name='Fecha fin')

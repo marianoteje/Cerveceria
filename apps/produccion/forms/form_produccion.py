@@ -11,8 +11,7 @@ class ProduccionForm(forms.ModelForm):
         		'cantidad_agua':'Cantidad de agua:',
                 'temperatura_maceracion'  :'Temperatura de maceracion:',
         		'temperatura_coccion':'Temperatura de coccion:',
-                'tiempo_coccion':'Tiempo de coccion:',
-                'ingrediente':'Ingredientes:',
+                'tiempo_coccion':'Tiempo de coccion:'
                 
         }
 
@@ -45,11 +44,13 @@ class ProduccionForm(forms.ModelForm):
                             'class':'form-control'
         					}
         			),
-                'ingrediente': forms.Select( 
+        		'ingrediente': forms.SelectMultiple( 
         			attrs=	{
-        					'placeholder':'Ingrediente',
+        					'placeholder':'Ingrese el ingrediente',
         					'id':'ingrediente',
                             'class':'form-control'
         					}
         			)
+                
         }
+		
