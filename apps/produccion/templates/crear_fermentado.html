@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% block title %} Fermentado | agregar ferementado {% endblock title %} {% block content %}
-
+<h2>Crear ferementado</h2>
 <div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
     <form method="POST">
         {% csrf_token %}
 
         <div class="form-group">
-            <label for="fecha_inicio">{{form.fecha_inicio.label}}</label> {{ form.fecha_inicio}}
+            <label for="fecha_fin">{{form.fecha_inicio.label}}</label> {{ form.fecha_inicio }}
         </div>
+
         <div class="form-group">
             <label for="fecha_fin">{{form.fecha_fin.label}}</label> {{ form.fecha_fin }}
         </div>
@@ -21,10 +22,8 @@
         </div>
         <button type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
 
-</div>
 
-</form>
+    </form>
 </div>
-
 
 {% endblock content %}

@@ -12,13 +12,13 @@ class AdminBarril(admin.ModelAdmin):
 
 class AdminFermentado(admin.ModelAdmin):
 
-    fields=('fecha_inicio','fecha_fin','litros_entrada','litros_salida',)
-    list_display = ('id','fecha_inicio','fecha_fin','litros_entrada','litros_salida')
+    fields=('fecha_inicio','fecha_fin','litros_entrada','litros_salida','produccion')
+    list_display = ('id','fecha_inicio','fecha_fin','litros_entrada','litros_salida','produccion')
 
 
 class AdminProduccion(admin.ModelAdmin):
-    fields=('fecha_produccion','cantidad_agua','temperatura_maceracion','temperatura_coccion','tiempo_coccion', 'ingrediente')
-    list_display = ('id','fecha_produccion','cantidad_agua','temperatura_maceracion','temperatura_coccion','tiempo_coccion', 'ingrediente')
+    fields=('fecha_produccion','cantidad_agua','temperatura_maceracion','tiempo_maceracion' ,'temperatura_coccion','tiempo_coccion', 'ingrediente')
+    list_display = ('id','fecha_produccion','cantidad_agua','temperatura_maceracion','tiempo_maceracion', 'temperatura_coccion','tiempo_coccion', 'ingrediente')
     list_display_links = list_display
 
 class AdminLote(admin.ModelAdmin):

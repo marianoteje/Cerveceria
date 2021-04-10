@@ -5,22 +5,32 @@ class ProduccionForm(forms.ModelForm):
 
     class Meta:
         model = Produccion
-        fields = ['fecha_produccion', 'cantidad_agua', 'temperatura_maceracion', 'temperatura_coccion', 'tiempo_coccion', 'ingrediente' ]
+        fields = ['descripcion','fecha_produccion', 'cantidad_agua', 'temperatura_maceracion','tiempo_maceracion', 'temperatura_coccion', 'tiempo_coccion', 'ingrediente' ]
         labels = {
-        		'fecha_produccion'  :'fecha de produccion:',
+				'descripcion'  :'Descripcion:',
+        		'fecha_produccion'  :'Fecha de produccion:',
         		'cantidad_agua':'Cantidad de agua:',
                 'temperatura_maceracion'  :'Temperatura de maceracion:',
+				'tiempo_maceracion'  :'Tiempo de maceracion:',
         		'temperatura_coccion':'Temperatura de coccion:',
-                'tiempo_coccion':'Tiempo de coccion:'
-                
+                'tiempo_coccion':'Tiempo de coccion:',
+				'ingrediente':'Ingrediente:'      
         }
 
         widgets = {
+				'descripcion': forms.TextInput( 
+        			attrs=	{
+        					'placeholder':'descripcion de la produccion',
+        					'id':'descripcion',
+                            'class':'form-control',
+        					}
+        			),
         		'fecha_produccion': forms.DateInput( 
         			attrs=	{
-        					'placeholder':'Ingrese la fecha de produccion:',
+        					'placeholder':'Ingrese la fecha de produccion',
         					'id':'fecha_produccion',
-                            'class':'form-control',
+                            'class':'form-control',           
+                            'type':'date'
         					}
         			),
         		'cantidad_agua': forms.NumberInput( 
@@ -34,6 +44,20 @@ class ProduccionForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese la temperatura de maceracion:',
         					'id':'temperatura_maceracion',
+                            'class':'form-control'
+        					}
+        			),
+				'tiempo_maceracion': forms.NumberInput( 
+        			attrs=	{
+        					'placeholder':'Tiempo de maceracion:',
+        					'id':'tiempo_maceracion',
+                            'class':'form-control'
+        					}
+        			),
+				'temperatura_coccion': forms.TextInput( 
+        			attrs=	{
+        					'placeholder':'Temperatura de la coccion',
+        					'id':'temperatura_coccion',
                             'class':'form-control'
         					}
         			),

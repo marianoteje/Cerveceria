@@ -10,13 +10,22 @@ class Barril (models.Model):
 
 
 class Produccion (models.Model):
+    #agregue el campo descripcion 
+    descripcion = models.CharField(max_length=255, null=False, blank=False)
     fecha_produccion = models.DateTimeField(null=False, blank=False, verbose_name='Fecha')
     cantidad_agua = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='Litros de agua usados')
     temperatura_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura de macerado')
+    #agregue el campo tiempo macerado
+    tiempo_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Tiempo de macerado')
     temperatura_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura cocción')
-    tiempo_coccion = models.TimeField(verbose_name='Tiempo de cocción')
+    #tiempo_coccion = models.TimeField(verbose_name='Tiempo de cocción')
+    tiempo_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Tiempo de cocción')
+    
     ingrediente = models.ForeignKey(Ingrediente,null=False, blank=False,default=0, on_delete=models.PROTECT)
     activo = models.BooleanField(default=True)
+
+    def __str__(self):
+       return self.descripcion
 
 class Ingrediente_Produccion(models.Model):
     ingrediente = models.ForeignKey(Ingrediente, null=False, blank=False, default=0, on_delete=models.PROTECT)

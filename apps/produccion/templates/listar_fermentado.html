@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %} Fermentado | listar fermentado {% endblock title %} {% block content %}
 
-
+<h2>Listado fermentados</h2>
 <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -27,7 +27,7 @@
             <td> {{ fermentado.fecha_fin}}</td>
             <td> {{ fermentado.litros_entrada}} </td>
             <td> {{ fermentado.litros_salida}} </td>
-            <td> {{ fermentado.produccion.name}}</td>
+            <td> {{ fermentado.produccion}}</td>
 
             <td>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

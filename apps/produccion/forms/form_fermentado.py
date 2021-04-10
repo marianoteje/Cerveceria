@@ -19,14 +19,16 @@ class FermentadoForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese la fecha de inicio del fermentado:',
         					'id':'fecha_inicio',
-                            'class':'form-control',
+                            'class':'form-control',           
+                            'type':'date'
         					}
         			),
         		'fecha_fin': forms.DateInput( 
         			attrs=	{
         					'placeholder':'Ingrese la fecha de fin del fermentado',
         					'id':'fecha_fin',
-                            'class':'form-control'
+                            'class':'form-control',           
+                            'type':'date'
         					}
         			),
                 'litros_entrada': forms.NumberInput( 

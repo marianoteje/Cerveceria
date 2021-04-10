@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block title %} Ingrediente | agregar ingrediente {% endblock title %} {% block content %}
 
+<h2>Crear ingrediente</h2>
 <div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
     <form method="POST">
         {% csrf_token %}
@@ -13,10 +14,7 @@
 
         <button type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
 
-</div>
-
-
-</form>
+    </form>
 </div>
 
 {% endblock content %}

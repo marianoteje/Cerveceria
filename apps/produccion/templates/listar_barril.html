@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %} Barril | listar barril {% endblock title %} {% block content %}
 
-
+<h2>Listado barriles</h2>
 <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -20,6 +20,7 @@
         {% for barril in barriles %}
 
         <tr>
+            <td> {{ barril.id}} </td>
             <td> {{ barril.codigo}} </td>
             <td> {{ barril.capacidad}} </td>
 
