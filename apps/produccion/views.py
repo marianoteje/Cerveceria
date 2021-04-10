@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView, TemplateView
+from django.views.generic import CreateView, ListView, TemplateView, FormView
 from django.urls import reverse_lazy
 from .forms.form_barril import BarrilForm
 from .forms.form_fermentado import FermentadoForm
@@ -19,8 +19,8 @@ class CreateFermentado(CreateView):
     template_name = 'crear_fermentado.html'
     success_url = reverse_lazy('produccion:crear_fermentado')
 
-class CreateProduccion(CreateView):
-    model = Produccion
+class CreateProduccion(FormView):
+    #model = Produccion
     form_class = ProduccionForm
     template_name = 'crear_produccion.html'
     success_url = reverse_lazy('produccion:crear_produccion')

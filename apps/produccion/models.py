@@ -11,17 +11,17 @@ class Barril (models.Model):
 
 class Produccion (models.Model):
     #agregue el campo descripcion 
-    descripcion = models.CharField(max_length=255, null=False, blank=False)
+    descripcion = models.TextField(null=False, blank=True, default='sin descripcion')
     fecha_produccion = models.DateTimeField(null=False, blank=False, verbose_name='Fecha')
     cantidad_agua = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='Litros de agua usados')
     temperatura_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura de macerado')
     #agregue el campo tiempo macerado
-    tiempo_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Tiempo de macerado')
+    tiempo_maceracion = models.DurationField(verbose_name='Tiempo maceracion')
+    #tiempo_maceracion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Tiempo de macerado')
     temperatura_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Temperatura cocción')
-    #tiempo_coccion = models.TimeField(verbose_name='Tiempo de cocción')
-    tiempo_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Tiempo de cocción')
-    
-    ingrediente = models.ForeignKey(Ingrediente,null=False, blank=False,default=0, on_delete=models.PROTECT)
+    tiempo_coccion = models.DurationField(verbose_name='Tiempo de cocción')
+    #tiempo_coccion = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Tiempo de cocción')
+    ingredientes = models.ManyToManyField(Ingrediente,through='Ingrediente_Produccion')
     activo = models.BooleanField(default=True)
 
     def __str__(self):
@@ -34,6 +34,7 @@ class Ingrediente_Produccion(models.Model):
 
     def __str__(self):
        return self.cantidad
+
 class Fermentado (models.Model):
     fecha_inicio = models.DateTimeField(null=False, blank=False, verbose_name='Fecha inicio')
     fecha_fin = models.DateTimeField(null=False, blank=False, verbose_name='Fecha fin')
