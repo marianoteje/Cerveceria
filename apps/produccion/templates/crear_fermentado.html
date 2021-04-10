@@ -1,16 +1,41 @@
 {% extends 'base.html' %} {% block title %} Fermentado | agregar ferementado {% endblock title %} {% block content %}
+
+
 <h2>Crear ferementado</h2>
 <div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
     <form method="POST">
         {% csrf_token %}
 
-        <div class="form-group">
-            <label for="fecha_fin">{{form.fecha_inicio.label}}</label> {{ form.fecha_inicio }}
+        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            {{ form.fecha_inicio }}
+            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="fecha_fin">{{form.fecha_fin.label}}</label> {{ form.fecha_fin }}
+        <script>
+            $(function() {
+                $("#datetimepicker1").datetimepicker({
+                    format: 'DD/MM/YYYY HH:mm',
+                });
+            });
+        </script>
+
+        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+            {{ form.fecha_fin }}
+            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
         </div>
+
+        <script>
+            $(function() {
+                $("#datetimepicker2").datetimepicker({
+                    format: 'DD/MM/YYYY HH:mm',
+                });
+            });
+        </script>
+
         <div class="form-group">
             <label for="litros_entrada">{{form.litros_entrada.label}}</label> {{ form.litros_entrada}}
         </div>
@@ -25,5 +50,7 @@
 
     </form>
 </div>
+
+
 
 {% endblock content %}

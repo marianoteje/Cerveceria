@@ -17,7 +17,7 @@ class CreateFermentado(CreateView):
     model = Fermentado
     form_class = FermentadoForm
     template_name = 'crear_fermentado.html'
-    success_url = reverse_lazy('produccion:crear_fermentado')
+    success_url = reverse_lazy('produccion:listar_fermentado')
 
 class CreateProduccion(CreateView):
     model = Produccion
