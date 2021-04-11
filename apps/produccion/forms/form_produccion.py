@@ -22,5 +22,6 @@ class ProduccionForm(forms.Form):
 
 	ingrediente = forms.ModelChoiceField(label='Elija ingrediente',queryset=Ingrediente.objects.filter(activo=1),
 	   empty_label='(Elija ingrediente)',widget=forms.Select(attrs={'class':''}))	
+	   
 	cantidad = forms.DecimalField(max_digits=7,decimal_places=2,min_value=0,widget=forms.NumberInput(attrs={'class':''}))
 

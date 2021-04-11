@@ -5,10 +5,10 @@ class IngredienteForm(forms.ModelForm):
 
     class Meta:
         model = Ingrediente
-        fields = ['nombre', 'stock']
+        fields = ['nombre']
         labels = {
-        		'nombre'  :'Nombre del ingrediente',
-        		'stock':'Stock',
+        		'nombre'  :'Nombre del ingrediente'
+        	
                 
         }
 
@@ -17,13 +17,6 @@ class IngredienteForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese el nombre del ingrediente',
         					'id':'nombre',
-                            'class':'form-control'
-        					}
-        			),
-        		'stock': forms.TextInput( 
-        			attrs=	{
-        					'placeholder':'Ingrese el stock',
-        					'id':'stock',
                             'class':'form-control'
         					}
         			)
