@@ -1,4 +1,16 @@
-{% extends 'base.html' %} {% block title %} Produccion | listar produccion {% endblock title %} {% block content %}
+{% extends 'base.html' %} {% block title %} Produccion | listar produccion {% endblock title %} {% block script %}
+
+<script>
+    $(function() {
+        $('#mi-tabla').tablesorter();
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.14/js/jquery.tablesorter.min.js"></script>
+
+
+{% endblock script %} {% block content %}
 
 <h2>Listado producciones</h2>
 <div id="container-fluid">
@@ -15,17 +27,17 @@
     </div>
 </div>
 
-<table class="table">
+<table class="table" id="mi-tabla">
     <thead>
         <tr>
             <th>#</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Litros de agua usados</th>
-            <th scope="col">Temperatura de macerado</th>
-            <th scope="col">Tiempo de macerado</th>
-            <th scope="col">Temperatura cocción</th>
-            <th scope="col">Tiempo de cocción</th>
+            <th scope="col" style="cursor: pointer;">Descripcion</th>
+            <th scope="col" style="cursor: pointer;">Fecha</th>
+            <th scope="col" style="cursor: pointer;">Litros de agua usados</th>
+            <th scope="col" style="cursor: pointer;">Temperatura de macerado</th>
+            <th scope="col" style="cursor: pointer;">Tiempo de macerado</th>
+            <th scope="col" style="cursor: pointer;">Temperatura cocción</th>
+            <th scope="col" style="cursor: pointer;">Tiempo de cocción</th>
             <th scope="col">Eliminar</th>
             <th scope="col">Editar</th>
         </tr>

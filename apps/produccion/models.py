@@ -1,6 +1,6 @@
 from django.db import models
 from apps.compras.models import Ingrediente
-
+from Validaciones.validaciones import *
 
 class Barril (models.Model):
     codigo = models.IntegerField(null=False, blank=True)

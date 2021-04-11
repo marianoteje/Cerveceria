@@ -52,7 +52,8 @@ class CompraForm(forms.ModelForm):
                     attrs= {
                             'placeholder':'Ingrese el costo',
                             'id':'costo',
-                            'class':'form-control'
+                            'class':'form-control',
+							'min':'1'
                     }
                 ),
                 'fecha_compra': forms.DateInput(
@@ -76,7 +77,8 @@ class CompraForm(forms.ModelForm):
                     attrs={
                             'placeholder':'Ingrese la cantidad comprada en kilos',
                             'id':'cantidad',
-                            'class':'form-control'
+                            'class':'form-control',
+							'min':'1'
                     }
                 ),
                 'comentario': forms.TextInput(

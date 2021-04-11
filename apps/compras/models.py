@@ -27,7 +27,7 @@ class Compra (models.Model):
     fecha_compra = models.DateField(null=False, blank=False, verbose_name='Fecha de compra')
     fecha_vencimiento = models.DateField(null=True, verbose_name='Fecha de vencimiento')
     cantidad = models.DecimalField(max_digits=6, decimal_places=2)
-    comentario = models.TextField(null=False, blank=True)
+    comentario = models.TextField(null=False, blank=True, default='Sin comentarios')
     activa = models.BooleanField(default=True)
 
 

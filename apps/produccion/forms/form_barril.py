@@ -1,5 +1,6 @@
 from django import forms
-from apps.produccion.models import Barril    
+from apps.produccion.models import Barril   
+from django.core.exceptions import ValidationError 
 
 class BarrilForm(forms.ModelForm):
 
@@ -17,14 +18,16 @@ class BarrilForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese el codigo del barril:',
         					'id':'codigo',
-                            'class':'form-control'
+                            'class':'form-control',
+							'required':'true'
         					}
         			),
         		'capacidad': forms.NumberInput( 
         			attrs=	{
         					'placeholder':'Ingrese la capacidad del del barril',
         					'id':'capacidad',
-                            'class':'form-control'
+                            'class':'form-control',
+							'min':'0'
         					}
         			)
         }
