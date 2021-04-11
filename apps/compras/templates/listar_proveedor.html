@@ -1,9 +1,19 @@
 {% extends 'base.html' %} {% block title %} Proveedor | listar proveedores {% endblock title %} {% block content %}
 
-<h2>Listado ingrediente</h2>
-<form class="form-inline" style="margin-bottom: 20px;">
-    <input class="form-control mr-sm-2" type="search" placeholder="Ingrese algun dato" aria-label="Search">
-</form>
+<h2>Listado proveedores</h2>
+<div id="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <form class="form-inline" style="margin-bottom: 20px;">
+                <input class="form-control mr-sm-2 float-left" type="search" placeholder="Ingrese algun dato" aria-label="Search">
+            </form>
+        </div>
+
+        <div class="col-6">
+            <a href="{% url 'compras:crear_proveedor' %}" class="btn btn-secondary float-right" role="button" aria-pressed="true">Crear proveedor</a>
+        </div>
+    </div>
+</div>
 
 
 <table class="table">

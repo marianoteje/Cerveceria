@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
 
+    {% block script %} {% endblock script %}
 
     <title>{% block title %} Titulo default {% endblock title %}</title>
 </head>
@@ -36,73 +37,47 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only"></span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'compras:listar_compra' %}" id="navbarDropdownMenuLink">
                     Compra
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'compras:crear_compra' %}">Crear compras</a>
-                    <a class="dropdown-item" href="{% url 'compras:listar_compra' %}">Listar compras</a>
 
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'produccion:listar_produccion' %}">
                     Produccion
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'produccion:crear_produccion' %}">Crear produccion</a>
-                    <a class="dropdown-item" href="{% url 'produccion:listar_produccion' %}">Listar produccion</a>
 
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'produccion:listar_barril' %}">
                     Barril
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'produccion:crear_barril' %}">Crear barril</a>
-                    <a class="dropdown-item" href="{% url 'produccion:listar_barril' %}">Listar barriles</a>
 
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'compras:listar_proveedor' %}">
                     Proveedor
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'compras:crear_proveedor' %}">Crear provedor</a>
-                    <a class="dropdown-item" href="{% url 'compras:listar_proveedor' %}">Listar provedores</a>
 
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'compras:listar_ingrediente' %}">
                     Ingredientes
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'compras:crear_ingrediente' %}">Crer ingrediente</a>
-                    <a class="dropdown-item" href="{% url 'compras:listar_ingrediente' %}">Listar ingredientes</a>
-                </div>
+
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink">
                     Lote
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Crer lote</a>
-                    <a class="dropdown-item" href="#">Listar lote</a>
-                </div>
+
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'produccion:listar_fermentado' %}">
                     Fermentado
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'produccion:crear_fermentado' %}">Crer fermentado</a>
-                    <a class="dropdown-item" href="{% url 'produccion:listar_fermentado' %}">Listar fermentado</a>
 
-                </div>
             </li>
         </ul>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
