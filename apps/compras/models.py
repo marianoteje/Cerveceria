@@ -14,7 +14,7 @@ class Proveedor (models.Model):
 
 class Ingrediente (models.Model):
     nombre = models.CharField(max_length=255, null=False, blank=False)
-    stock = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Stock en kg')
+    stock = models.DecimalField(max_digits=7, null=True, decimal_places=2, default=0.0, verbose_name='Stock en kg')
     activo = models.BooleanField(default=True)
 
     def __str__(self):
