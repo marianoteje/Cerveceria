@@ -36,6 +36,12 @@ class listarFermentado(ListView):
     context_object_name = 'fermentados'
     template_name = 'listar_fermentado.html'
 
+class listarFermentadoPorFechaDesc(ListView):
+    model = Fermentado
+    queryset = Fermentado.objects.filter(activo = True).order_by('-fecha_inicio')
+    context_object_name = 'fermentados'
+    template_name = 'listar_fermentado.html'
+
 class listarProduccion(ListView):
     model = Produccion
     queryset = Produccion.objects.filter(activo = True)

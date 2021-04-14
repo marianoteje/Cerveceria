@@ -1,6 +1,48 @@
 {% extends 'base.html' %} {% block title %} Proveedor | listar proveedores {% endblock title %} {% block script %}
 
 <script>
+    function myFunction() {
+        //Funcion para filtrar de la tabla
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("busqueda");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("mi-tabla");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            td1 = tr[i].getElementsByTagName("td")[1];
+            td2 = tr[i].getElementsByTagName("td")[2];
+            td3 = tr[i].getElementsByTagName("td")[3];
+            td4 = tr[i].getElementsByTagName("td")[4];
+            td5 = tr[i].getElementsByTagName("td")[5];
+
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                txtValue1 = td1.textContent || td1.innerText;
+                txtValue2 = td2.textContent || td2.innerText;
+                txtValue3 = td3.textContent || td3.innerText;
+                txtValue4 = td4.textContent || td4.innerText;
+                txtValue5 = td5.textContent || td5.innerText;
+
+                if ((txtValue.toUpperCase().indexOf(filter) > -1) ||
+                    (txtValue1.toUpperCase().indexOf(filter) > -1) ||
+                    (txtValue2.toUpperCase().indexOf(filter) > -1) ||
+                    (txtValue3.toUpperCase().indexOf(filter) > -1) ||
+                    (txtValue4.toUpperCase().indexOf(filter) > -1) ||
+                    (txtValue5.toUpperCase().indexOf(filter) > -1)) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<script>
+    //Funcion para ordenar las columnas
     $(function() {
         $('#mi-tabla').tablesorter();
     });
@@ -15,18 +57,24 @@
 <h2>Listado proveedores</h2>
 <div id="container-fluid">
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
             <form class="form-inline" style="margin-bottom: 20px;">
-                <input class="form-control mr-sm-2 float-left" type="search" placeholder="Ingrese algun dato" aria-label="Search">
+                <input id="busqueda" class="form-control mr-sm-2 float-left" onkeyup="myFunction()" type="text" placeholder="Ingrese algun dato" aria-label="Ingrese algun dato de busqueda">
             </form>
         </div>
-
-        <div class="col-6">
-            <a href="{% url 'compras:crear_proveedor' %}" class="btn btn-secondary float-right" role="button" aria-pressed="true">Crear proveedor</a>
+        <div class="col-2">
+            <div class="input-group-prepend" style="margin-bottom: 20px;">
+                <div class="input-group-text">
+                    <input type="checkbox" aria-label="Checkbox for following text input" style="cursor: pointer; ">
+                </div>
+                <span class="input-group-text" id="">Mostrar inactivos</span>
+            </div>
+        </div>
+        <div class="col-6" style="margin-bottom: 20px;">
+            <a href="{% url 'produccion:crear_barril' %}" class="btn btn-secondary float-right" role="button" aria-pressed="true">Crear barril</a>
         </div>
     </div>
 </div>
-
 
 <table class="table" id="mi-tabla">
     <thead>
