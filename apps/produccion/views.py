@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView, TemplateView, FormView
+from django.views.generic import CreateView, ListView, TemplateView, FormView, UpdateView
 from django.urls import reverse_lazy
 from .forms.form_barril import BarrilForm
 from .forms.form_fermentado import FermentadoForm
@@ -47,3 +47,16 @@ class listarProduccion(ListView):
     queryset = Produccion.objects.filter(activo = True)
     context_object_name = 'producciones'
     template_name = 'listar_produccion.html'
+
+
+class editarBarril(UpdateView):
+    model = Barril
+    form_class = BarrilForm
+    template_name = 'editar_barril.html'
+    success_url = reverse_lazy('produccion:listar_barril')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['barril'] = Barril.objects.filter(activo= True)
+        return context
+        
