@@ -19,7 +19,8 @@ class ProveedorForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese el nombre del proveedor',
         					'id':'nombre',
-                            'class':'form-control'
+                            'class':'form-control',
+							'required':'true'
         					}
         			),
         		'descripcion': forms.TextInput( 
@@ -33,7 +34,8 @@ class ProveedorForm(forms.ModelForm):
                     attrs= {
                             'placeholder':'Ingrese telefono',
                             'id':'telefono',
-                            'class':'form-control'
+                            'class':'form-control',
+							'required':'true'
                     }
                 ),
                 'email': forms.EmailInput(
@@ -41,14 +43,17 @@ class ProveedorForm(forms.ModelForm):
                             'placeholder':'Ingrese email',
                             'id':'email',
                             'type': 'email',
-                            'class':'form-control'
+                            'class':'form-control',
+							'required':'true',
+                            'type':'email'
                     }
                 ),
                 'direccion': forms.TextInput(
                     attrs={
                             'placeholder':'Ingrese direccion',
                             'id':'Ingrese direccion',
-                            'class':'form-control'
+                            'class':'form-control',
+							'required':'true'
                     }
                 )
         }

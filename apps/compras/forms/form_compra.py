@@ -3,20 +3,14 @@ from apps.compras.models import Compra, Proveedor
 
 class CompraForm(forms.ModelForm):
 
-    
     def __init__(self,*args,**kwargs):
         self.qset = Proveedor.objects.filter(activo=1)
         super(CompraForm,self).__init__(*args,**kwargs)
         self.fields['id_proveedor'].queryset = self.qset
         self.fields['id_proveedor'].empty_label='Elija Proveedor'
-
-
-
     class Meta:
         
         model = Compra
-
-        
 
         fields = ['id_proveedor','id_ingrediente','costo','fecha_compra','fecha_vencimiento','cantidad','comentario']
         
@@ -52,7 +46,9 @@ class CompraForm(forms.ModelForm):
                     attrs= {
                             'placeholder':'Ingrese el costo',
                             'id':'costo',
-                            'class':'form-control'
+                            'class':'form-control',
+							'min':'1',
+							'type':'number'
                     }
                 ),
                 'fecha_compra': forms.DateInput(
@@ -76,7 +72,8 @@ class CompraForm(forms.ModelForm):
                     attrs={
                             'placeholder':'Ingrese la cantidad comprada en kilos',
                             'id':'cantidad',
-                            'class':'form-control'
+                            'class':'form-control',
+							'min':'1'
                     }
                 ),
                 'comentario': forms.TextInput(

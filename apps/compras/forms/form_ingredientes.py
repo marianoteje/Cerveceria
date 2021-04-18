@@ -17,7 +17,8 @@ class IngredienteForm(forms.ModelForm):
         			attrs=	{
         					'placeholder':'Ingrese el nombre del ingrediente',
         					'id':'nombre',
-                            'class':'form-control'
+                            'class':'form-control',
+							'required':'true'
         					}
         			)
         }
