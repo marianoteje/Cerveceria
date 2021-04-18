@@ -1,67 +1,72 @@
-{% extends 'base.html' %} {% block title %} Produccion | agregar produccion {% endblock title %} {% block content %}
+{% extends 'base.html' %} 
+{% block title %} 
+  Produccion | agregar produccion 
+{% endblock title %} 
 
-<h2>Crear produccion</h2>
-<div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
-    <form method="POST">
-        {% csrf_token %}
-        
-        
+{% block content %}
 
-
-        <!--
-        <div class="form-group">
+  <h2>Crear produccion</h2>
+  <div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
+      <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
             <label for="descripcion">{{form.descripcion.label}}</label> {{ form.descripcion}}
-        </div>
-        <div class="form-group">
-            <label for="fecha_produccion">{{form.fecha_produccion.label}}</label> {{form.fecha_produccion}}
-        </div>
-        <div class="form-group">
-            <label for="canti_agua">{{form.temp_maceracion.label}}</label> {{form.temp_maceracion}}
-        </div>
-        <div class="form-group">
-            <label for="tiempo_maceracion">{{form.tiempo_maceracion.label}}</label> {{form.tiempo_maceracion}}
-        </div>
-        <div class="form-group">
-            <label for="temp_coccion">{{form.temp_coccion.label}}</label> {{form.temp_coccion}}
-        </div>
-        <div class="form-group">
-            <label for="tiempo_coccion">{{form.tiempo_coccion.label}}</label> {{form.tiempo_coccion}}
-        </div>
-        <div class="form-group">
-            <div>
-              <label for="ingrediente">{{form.ingrediente.label}}</label> {{form.ingrediente}}
-              <label for="cantidad">{{form.cantidad.label}}</label> {{form.cantidad}}
+          </div>
+          <div class="form-group">
+              <label for="fecha_produccion">{{form.fecha_produccion.label}}</label> {{ form.fecha_produccion }}
+          </div>
+          <div class="form-group">
+              <label for="cantidad_agua">{{form.cantidad_agua.label}}</label>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text">Lts</div>
+                  </div>
+                  {{ form.cantidad_agua}}
+              </div>
+          </div>
+  
+          <div class="form-group">
+  
+              <label for="temperatura_maceracion">{{form.temperatura_maceracion.label}}</label>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text">°</div>
+                  </div>
+                  {{ form.temperatura_maceracion }}
+              </div>
+          </div>
+  
+  
+  
+          <div class="form-group">
+              <label for="tiempo_maceracion">{{form.tiempo_maceracion.label}}</label> {{ form.tiempo_maceracion }}
+          </div>
+          <div class="form-group">
+  
+            <label for="temperatura_coccion">{{form.temperatura_coccion.label}}</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">°</div>
+                </div>
+                {{ form.temperatura_coccion }}
             </div>
         </div>
-        
-        <div class="form-group">
-            <label for="descripcion">{{form.descripcion.label}}</label> {{ form.descripcion}}
-        </div>
-        <div class="form-group">
-            <label for="fecha_produccion">{{form.fecha_produccion.label}}</label> {{ form.fecha_produccion}}
-        </div>
-        <div class="form-group">
-            <label for="cantidad_agua">{{form.cantidad_agua.label}}</label> {{ form.cantidad_agua }}
-        </div>
-        <div class="form-group">
-            <label for="temperatura_maceracion">{{form.temperatura_maceracion.label}}</label> {{ form.temperatura_maceracion}}
-        </div>
-        <div class="form-group">
-            <label for="tiempo_maceracion">{{form.tiempo_maceracion.label}}</label> {{ form.tiempo_maceracion}}
-        </div>
-        <div class="form-group">
-            <label for="temperatura_coccion">{{form.temperatura_coccion.label}}</label> {{ form.temperatura_coccion }}
-        </div>
-        <div class="form-group">
-            <label for="tiempo_coccion">{{form.tiempo_coccion.label}}</label> {{ form.tiempo_coccion }}
-        </div>
-        <div class="form-group">
-            <label for="ingrediente">{{form.ingredientes.label}}</label> {{ form.ingredientes }}
-        </div>
+          <div class="form-group">
+              <label for="tiempo_coccion">{{form.tiempo_coccion.label}}</label> {{ form.tiempo_coccion }}
+          </div>
+  
+  
+  
+          <div class="row">
+              <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+          </div>
 
-        <button type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
-        -->
-    </form>
-</div>
+
+          
+          
+          
+  
+      </form>
+  </div>
 
 {% endblock content %}

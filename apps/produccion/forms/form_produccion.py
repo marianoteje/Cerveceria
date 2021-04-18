@@ -1,16 +1,12 @@
 from django import forms
-from apps.produccion.models import Produccion, Ingrediente_Produccion, Ingrediente
+from apps.produccion.models import Produccion
 
-
-class IngredienteProduccionForm(forms.ModelForm):
-	class Meta:
-		model = Ingrediente_Produccion
-		fields = ('ingrediente','cantidad')
 
 class ProduccionForm(forms.ModelForm):
 	class Meta:
 		model = Produccion
-		fields=('descripcion',
+		fields=(
+			'descripcion',
 	    	    'fecha_produccion',
 				'cantidad_agua',
 				'temperatura_maceracion',
@@ -18,28 +14,73 @@ class ProduccionForm(forms.ModelForm):
 				'temperatura_coccion',
 				'tiempo_coccion')
 
-	
-"""
-	descripcion = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-	
-	fecha_produccion = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class':'form-control'}))
-	
-	cant_agua = forms.DecimalField(max_digits=11, decimal_places=2,label='Cantidad agua',
-	    widget=forms.NumberInput(attrs={'class':'form-control'}))
-	
-	temp_maceracion = forms.DecimalField(max_digits=5,decimal_places=2,label='Temperatura de macerado',
-	    widget=forms.NumberInput(attrs={'class':'form-control'}))
-	
-	tiempo_maceracion = forms.DurationField(label='Tiempo de macerado',widget=forms.TextInput(attrs={'class':'form-control'}))
-	
-	temp_coccion = forms.DecimalField(max_digits=5,decimal_places=2,label='Temperatura de cocción',
-	    widget=forms.NumberInput(attrs={'class':'form-control'}))
-	
-	tiempo_coccion = forms.DurationField(label='Tiempo de cocción',
-	    widget=forms.NumberInput(attrs={'class':'form-control'}))
+		labels = {
+			'descripcion':'Descripcion',
+			'fecha_produccion':'Fecha produccion',
+			'Cantidad agua':'Litros de agua usados',
+			'temperatura_maceracion':'Temperatura macerado',
+			'tiempo_maceracion':'Tiempo de macerado',
+			'temperatura_coccion':'Temperatura coccion',
+			'tiempo_coccion':'Tiempo de coccion'
+		}
 
-	ingrediente = forms.ModelChoiceField(label='Elija ingrediente',queryset=Ingrediente.objects.filter(activo=1),
-	   empty_label='(Elija ingrediente)',widget=forms.Select(attrs={'class':''}))	
-	   
-	cantidad = forms.DecimalField(max_digits=7,decimal_places=2,min_value=0,widget=forms.NumberInput(attrs={'class':''}))
-"""
+		widgets ={
+			'descripcion': forms.TextInput( 
+        			attrs=	{
+        					'placeholder':'Ingrese descripcion',
+        					'id':'descripcion',
+                            'class':'form-control',
+							'required':'true'
+        					}
+        			),
+        		'fecha_produccion': forms.TextInput( 
+        			attrs=	{
+        					'id':'fecha_produccion',
+                            'class':'form-control'
+        					}
+        			),
+                'cantidad_agua': forms.NumberInput(
+                    attrs= {
+                            'placeholder':'Cantida de agua (lts)',
+                            'id':'cantidad_agua',
+                            'class':'form-control',
+							'required':'true'
+                    }
+                ),
+                'temperatura_maceracion': forms.NumberInput(
+                    attrs={
+                            'placeholder':'Temperatura de macerado',
+                            'id':'temperatura_maceracion',
+                            'class':'form-control',
+							'required':'true'
+                            
+                    }
+                ),
+                'tiempo_maceracion': forms.TimeInput(
+                    attrs={
+                            'placeholder':'Tiempo macerado',
+                            'id':'tiempo_maceracion',
+                            'class':'form-control',
+							'required':'true'
+                    }
+                ),
+                'temperatura_coccion': forms.NumberInput(
+                    attrs={
+                            'placeholder':'Temperatura de coccion',
+                            'id':'temperatura_coccion',
+                            'class':'form-control',
+							'required':'true'
+                    }
+                ),
+                'tiempo_coccion': forms.TimeInput(
+                    attrs={
+                            'placeholder':'Tiempo coccion',
+                            'id':'tiempo_coccion',
+                            'class':'form-control',
+							'required':'true'
+                    }
+                )
+
+		}
+
+	

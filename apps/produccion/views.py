@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.forms.models import formset_factory
 from .forms.form_barril import BarrilForm
 from .forms.form_fermentado import FermentadoForm
-from .forms.form_produccion import ProduccionForm, IngredienteProduccionForm
+from .forms.form_produccion import ProduccionForm
 from .models import Produccion, Barril, Fermentado, Lote
 
 
@@ -17,13 +17,12 @@ class CreateBarril(CreateView):
 class CreateFermentado(FormView):
    
     form_class = ProduccionForm
-    ingredientes_formset = formset_factory(IngredienteProduccionForm)
     template_name = 'crear_fermentado.html'
     success_url = reverse_lazy('produccion:listar_fermentado')
 
-class CreateProduccion(FormView):
+class CreateProduccion(CreateView):
     model = Produccion
-    
+    form_class = ProduccionForm
     template_name = 'crear_produccion.html'
     success_url = reverse_lazy('produccion:crear_produccion')
 
