@@ -27,7 +27,8 @@ class FermentadoForm(forms.ModelForm):
         					'id':'fecha_inicio',
                             'class': 'form-control datetimepicker-input',
             				'data-target': '#datetimepicker1',
-							'required':'true'
+							'required':'true',
+							'type': 'datetime'
         					}
         			),
         		'fecha_fin': forms.DateTimeInput( 
@@ -36,7 +37,8 @@ class FermentadoForm(forms.ModelForm):
         					'id':'fecha_inicio',
                             'class': 'form-control datetimepicker-input',
             				'data-target': '#datetimepicker2',
-							'required':'true'
+							'required':'true',
+							'type': 'datetime'
         					}
         			),
                 'litros_entrada': forms.NumberInput( 

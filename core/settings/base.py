@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from django.conf.locale.es import formats as es_formats
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -107,3 +107,7 @@ LANGUAGE_CODE = 'es-la'
 es_formats.DATE_FORMAT = "d/m/Y"
 es_formats.DATETIME_FORMAT = "d/m/Y - H:i"
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    'static',
+]

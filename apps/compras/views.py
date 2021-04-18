@@ -68,35 +68,18 @@ class editarProveedor(UpdateView):
     template_name = 'editar_proveedor.html'
     success_url = reverse_lazy('compras:listar_proveedor')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['proveedor'] = Proveedor.objects.filter(activo= True)
-        return context
-
 class editarIngrediente(UpdateView):
     model = Ingrediente
     form_class = IngredienteForm
     template_name = 'editar_ingrediente.html'
     success_url = reverse_lazy('compras:listar_ingrediente')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['ingrediente'] = Ingrediente.objects.filter(activo= True)
-        return context
-
-
 class editarCompra(UpdateView):
     model = Compra
     form_class = CompraForm
     template_name = 'editar_compra.html'
     success_url = reverse_lazy('compras:listar_compra')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['compra'] = Compra.objects.filter(activa= True)
-        return context
-
-
+  
 class eliminarCompra(DeleteView):
     model = Compra
     template_name = 'eliminar_compra.html'

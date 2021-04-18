@@ -55,33 +55,18 @@ class editarBarril(UpdateView):
     template_name = 'editar_barril.html'
     success_url = reverse_lazy('produccion:listar_barril')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['barril'] = Barril.objects.filter(activo= True)
-        return context
         
 class editarFermentado(UpdateView):
     model = Fermentado
     form_class = FermentadoForm
     template_name = 'editar_fermentado.html'
     success_url = reverse_lazy('produccion:listar_fermentado')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['fermentado'] = Fermentado.objects.filter(activo= True)
-        return context
         
-
 class editarProduccion(UpdateView):
     model = Produccion
     form_class = ProduccionForm
     template_name = 'editar_produccion.html'
     success_url = reverse_lazy('produccion:listar_produccion')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['produccion'] = Produccion.objects.filter(activo= True)
-        return context
 
 class eliminarBarril(DeleteView):
     model = Barril
@@ -103,3 +88,15 @@ class eliminarFermentado(DeleteView):
         object.activo = False
         object.save()
         return redirect('produccion:listar_fermentado')
+
+
+
+class eliminarProduccion(DeleteView):
+    model = Produccion
+    template_name = 'eliminar_produccion.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Produccion.objects.get (id = pk)
+        object.activo = False
+        object.save()
+        return redirect('produccion:listar_produccion')

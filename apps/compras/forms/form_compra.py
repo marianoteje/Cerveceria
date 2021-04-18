@@ -56,7 +56,9 @@ class CompraForm(forms.ModelForm):
                             'placeholder':'Ingrese la fecha de compra',
                             'class': 'form-control',
                             'id':'fecha_compra',
-                            'type':'date'
+                            'type':'date', 
+                            'required':'true',
+                            'data-date-format':'mm/dd/yyyy'
                     }
                 ),
                 'fecha_vencimiento': forms.DateInput(

@@ -13,6 +13,7 @@ urlpatterns = [
     path('editar_produccion/<int:pk>', editarProduccion.as_view(), name='editar_produccion'),
     path('eliminar_barril/<int:pk>', eliminarBarril.as_view(), name='eliminar_barril'),
     path('eliminar_fermentado/<int:pk>', eliminarFermentado.as_view(), name='eliminar_fermentado'),
+    path('eliminar_produccion/<int:pk>', eliminarProduccion.as_view(), name='eliminar_produccion'),
     
     
 ]

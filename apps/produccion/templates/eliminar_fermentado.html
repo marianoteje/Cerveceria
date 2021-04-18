@@ -4,7 +4,7 @@
 <div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 class="modal-title">¿Esta seguro que quiere eliminar el fermentado con fecha: {{ object.fecha_inicio }}?</h2>
+            <h3 class="modal-title">¿Esta seguro que quiere eliminar el fermentado con fecha: {{ object.fecha_inicio }}?</h3>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -12,19 +12,28 @@
         <form id="form_edicion" action="{% url 'produccion:eliminar_fermentado' object.id %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="modal-body">
-
-                <p><strong>Codigo</strong></p>
-                <p> {{ fermentado.id}} </p>
-                <p><strong>Fecha de inicio</strong></p>
-                <p> {{ fermentado.fecha_inicio}} </p>
-                <p><strong>Fecha de fin</strong></p>
-                <p> {{ fermentado.fecha_fin}}</p>
-                <p><strong>Litros de entrada</strong></p>
-                <p> {{ fermentado.litros_entrada}} </p>
-                <p><strong>Litros de salida</strong></p>
-                <p> {{ fermentado.litros_salida}} </p>
-                <p><strong>Produccion</strong></p>
-                <p> {{ fermentado.produccion}}</p>
+                <table class="table" id="mi-tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Fecha de inicio</th>
+                            <th scope="col">Fecha de salida</th>
+                            <th scope="col">Litros entrada</th>
+                            <th scope="col">Litros salida</th>
+                            <th scope="col">Produccion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> {{ fermentado.id}} </td>
+                            <td> {{ fermentado.fecha_inicio}} </td>
+                            <td> {{ fermentado.fecha_fin}}</td>
+                            <td> {{ fermentado.litros_entrada}} </td>
+                            <td> {{ fermentado.litros_salida}} </td>
+                            <td> {{ fermentado.produccion}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

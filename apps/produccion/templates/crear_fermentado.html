@@ -22,7 +22,7 @@
         {% csrf_token %} {{ form.fecha_inicio.label }}
         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
             {{ form.fecha_inicio }}
-            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+            <div id="datetimepicker1" class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
             </div>
         </div>
@@ -30,7 +30,7 @@
         {{ form.fecha_fin.label }}
         <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
             {{ form.fecha_fin }}
-            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+            <div id="datetimepicker2" class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
             </div>
         </div>
@@ -45,8 +45,9 @@
         <div class="form-group">
             <label for="produccion">{{form.produccion.label}}</label> {{ form.produccion }}
         </div>
-        <button type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
-
+        <div class="row">
+            <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+        </div>
 
     </form>
 </div>
