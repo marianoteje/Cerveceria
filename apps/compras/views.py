@@ -8,6 +8,7 @@ from .models import Proveedor,Ingrediente, Compra
 
 class Home(TemplateView):
     template_name = 'index.html'
+    
 class CreateProveedor(CreateView):
     model = Proveedor
     form_class = ProveedorForm

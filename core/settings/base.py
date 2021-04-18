@@ -106,6 +106,7 @@ USE_TZ = True
 LANGUAGE_CODE = 'es-la'
 es_formats.DATE_FORMAT = "d/m/Y"
 es_formats.DATETIME_FORMAT = "d/m/Y - H:i"
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS = [
