@@ -22,84 +22,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
-=======
     {% block script %} {% endblock script %}
->>>>>>> f0bc94828dfca7b5df4802bbf92c037e5217f92a
 
     <title>{% block title %} Titulo default {% endblock title %}</title>
 </head>
 
-<<<<<<< HEAD
-
-<!--  Inicio Cabecera-->
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Cerveceria</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExample06">
-            <ul class="navbar-nav col-12 col-md-auto mb-2 mb-md-0">
-                <li><a href="{% url 'index' %}" class="nav-link px-2 link-secondary">Inicio</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Produccion</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="{% url 'produccion:crear_produccion' %}">Crear produccion</a></li>
-                        <li><a class="dropdown-item" href="{% url 'produccion:listar_produccion' %}">Listar produccion</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Compras</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="{% url 'compras:crear_compra' %}">Crear compras</a></li>
-                        <li><a class="dropdown-item" href="{% url 'compras:listar_compra' %}">Listar compras</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Barriles</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="{% url 'produccion:crear_barril' %}">Crear barril</a></li>
-                        <li><a class="dropdown-item" href="{% url 'produccion:listar_barril' %}">Listar barriles</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Proveedores</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="{% url 'compras:crear_proveedor' %}">Crear provedor</a></li>
-                        <li><a class="dropdown-item" href="{% url 'compras:listar_proveedor' %}">Listar provedores</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Ingredientes</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="{% url 'compras:crear_compra' %}">Crer ingrediente</a></li>
-                        <li><a class="dropdown-item" href="{% url 'compras:listar_compra' %}">Listar ingredientes</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Fermentado</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="{% url 'produccion:crear_fermentado' %}">Crer fermentado</a></li>
-                        <li><a class="dropdown-item" href="{% url 'produccion:listar_fermentado' %}">Listar fermentado</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Lotes</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="#">Crer lote</a></li>
-                        <li><a class="dropdown-item" href="#">Listar lote</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-            <div class="text-end"></div>
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
-    </div>
-=======
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Cerveceria</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -154,7 +81,6 @@
             </li>
         </ul>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
->>>>>>> f0bc94828dfca7b5df4802bbf92c037e5217f92a
     </div>
 </nav>
 

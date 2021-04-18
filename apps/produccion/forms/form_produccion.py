@@ -1,7 +1,25 @@
 from django import forms
 from apps.produccion.models import Produccion, Ingrediente_Produccion, Ingrediente
 
-class ProduccionForm(forms.Form):
+
+class IngredienteProduccionForm(forms.ModelForm):
+	class Meta:
+		model = Ingrediente_Produccion
+		fields = ('ingrediente','cantidad')
+
+class ProduccionForm(forms.ModelForm):
+	class Meta:
+		model = Produccion
+		fields=('descripcion',
+	    	    'fecha_produccion',
+				'cantidad_agua',
+				'temperatura_maceracion',
+				'tiempo_maceracion',
+				'temperatura_coccion',
+				'tiempo_coccion')
+
+	
+"""
 	descripcion = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 	
 	fecha_produccion = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class':'form-control'}))
@@ -24,4 +42,4 @@ class ProduccionForm(forms.Form):
 	   empty_label='(Elija ingrediente)',widget=forms.Select(attrs={'class':''}))	
 	   
 	cantidad = forms.DecimalField(max_digits=7,decimal_places=2,min_value=0,widget=forms.NumberInput(attrs={'class':''}))
-
+"""
