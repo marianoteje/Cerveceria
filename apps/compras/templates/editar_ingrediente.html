@@ -1,0 +1,25 @@
+<!-- Modal -->
+
+
+<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Edición del ingrediente: {{ object.nombre }}</h2>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'compras:editar_ingrediente' object.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                {{ form.as_p }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Fin modal-->

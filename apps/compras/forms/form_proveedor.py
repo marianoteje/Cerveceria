@@ -44,7 +44,8 @@ class ProveedorForm(forms.ModelForm):
                             'id':'email',
                             'type': 'email',
                             'class':'form-control',
-							'required':'true'
+							'required':'true',
+                            'type':'email'
                     }
                 ),
                 'direccion': forms.TextInput(

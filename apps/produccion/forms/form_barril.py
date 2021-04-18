@@ -19,7 +19,8 @@ class BarrilForm(forms.ModelForm):
         					'placeholder':'Ingrese el codigo del barril:',
         					'id':'codigo',
                             'class':'form-control',
-							'required':'true'
+							'required':'true',
+							'type':'number'
         					}
         			),
         		'capacidad': forms.NumberInput( 
@@ -27,7 +28,8 @@ class BarrilForm(forms.ModelForm):
         					'placeholder':'Ingrese la capacidad del del barril',
         					'id':'capacidad',
                             'class':'form-control',
-							'min':'0'
+							'min':'0',
+							'type':'number'
         					}
         			)
         }

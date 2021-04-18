@@ -1,0 +1,38 @@
+<!-- Modal -->
+
+
+<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">¿Esta seguro que quiere eliminar el proveedor: {{ object.nombre }}?</h2>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'compras:eliminar_proveedor' object.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                <p><strong>Codigo</strong></p>
+                <p> {{ object.id}} </p>
+                <p><strong>Nombre</strong></p>
+                <p> {{ object.nombre}} </p>
+                <p><strong>Descripcion</strong></p>
+                <p> {{ object.descripcion}}</p>
+                <p><strong>Telefono</strong></p>
+                <p> {{ object.telefono}} </p>
+                <p><strong>Email</strong></p>
+                <p> {{ object.email}}</p>
+                <p><strong>Direccion</strong></p>
+                <p> {{ object.direccion}}</p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Eliminar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Fin modal-->

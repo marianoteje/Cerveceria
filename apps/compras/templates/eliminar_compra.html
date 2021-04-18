@@ -1,0 +1,41 @@
+<!-- Modal -->
+
+
+<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">¿Esta seguro que quiere eliminar la compra con fecha: {{ object.fecha_compra }}?</h2>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'compras:eliminar_compra' object.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                <p><strong>Codigo</strong></p>
+                <p> {{ object.id}} </p>
+                <p><strong>Proveedor</strong></p>
+                <p> {{ object.id_proveedor.nombre}} </p>
+                <p><strong>Ingrediente</strong></p>
+                <p> {{ object.id_ingrediente.nombre}}</p>
+                <p><strong>Comentarios</strong></p>
+                <p> {{ object.comentario}} </p>
+                <p><strong>Costo</strong></p>
+                <p> $ {{ object.costo}} </p>
+                <p><strong>Cantidad</strong></p>
+                <p> {{ object.cantidad}} Kg</p>
+                <p><strong>Fecha de compra</strong></p>
+                <p> {{ object.fecha_compra}} </p>
+                <p><strong>Fecha de vencimiento</strong></p>
+                <p> {{ object.fecha_vencimiento}}</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Eliminar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Fin modal-->
