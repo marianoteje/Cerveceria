@@ -1,10 +1,13 @@
-{% extends 'base.html' %} {% block title %} Barril | agregar barril {% endblock title %} {% block content %}
-
-<h2>Crear barril</h2>
+{% extends 'base.html' %} {% load static %} {% block title %} Produccion | agregar barril {% endblock title %} {% block content %}
+<div class="container-fluid" id="titulo">
+    <div class="row">
+        <h2>Crear barril</h2>
+    </div>
+</div>
+<hr/>
 <div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
     <form method="POST">
         {% csrf_token %}
-
         <div class="form-group">
             <label for="codigo">{{form.codigo.label}}</label> {{ form.codigo}}
         </div>
@@ -14,6 +17,7 @@
         <div class="row">
             <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
         </div>
+
 
     </form>
 </div>

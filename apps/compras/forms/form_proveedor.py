@@ -20,14 +20,16 @@ class ProveedorForm(forms.ModelForm):
         					'placeholder':'Ingrese el nombre del proveedor',
         					'id':'nombre',
                             'class':'form-control',
-							'required':'true'
+							'required':'true',
+                            'autocomplete':'off'
         					}
         			),
         		'descripcion': forms.TextInput( 
         			attrs=	{
         					'placeholder':'Ingrese descripcion',
         					'id':'descripcion',
-                            'class':'form-control'
+                            'class':'form-control',
+                            'autocomplete':'off'
         					}
         			),
                 'telefono': forms.TextInput(
@@ -35,7 +37,8 @@ class ProveedorForm(forms.ModelForm):
                             'placeholder':'Ingrese telefono',
                             'id':'telefono',
                             'class':'form-control',
-							'required':'true'
+							'required':'true',
+                            'autocomplete':'off'
                     }
                 ),
                 'email': forms.EmailInput(
@@ -45,7 +48,8 @@ class ProveedorForm(forms.ModelForm):
                             'type': 'email',
                             'class':'form-control',
 							'required':'true',
-                            'type':'email'
+                            'type':'email',
+                            'autocomplete':'off'
                     }
                 ),
                 'direccion': forms.TextInput(
@@ -53,7 +57,8 @@ class ProveedorForm(forms.ModelForm):
                             'placeholder':'Ingrese direccion',
                             'id':'Ingrese direccion',
                             'class':'form-control',
-							'required':'true'
+							'required':'true',
+                            'autocomplete':'off'
                     }
                 )
         }

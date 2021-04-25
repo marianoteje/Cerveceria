@@ -17,28 +17,30 @@ class FermentadoForm(forms.ModelForm):
         		'fecha_fin':'Fecha de fin',
                 'litros_entrada'  :'Litros de entrada',
         		'litros_salida':'Litros de salida',
-                'produccion':'produccion',
+                'produccion':'Produccion',
         }
 
 		widgets = {
         		'fecha_inicio': forms.DateTimeInput( 
         			attrs=	{
         					'placeholder':'Ingrese la fecha de inicio del fermentado:',
-        					'id':'fecha_inicio',
+        					'id':'datetimepicker1',
                             'class': 'form-control datetimepicker-input',
             				'data-target': '#datetimepicker1',
 							'required':'true',
-							'type': 'datetime'
+							'type': 'text',
+                            'autocomplete':'off'
         					}
         			),
         		'fecha_fin': forms.DateTimeInput( 
         			attrs=	{
         					'placeholder':'Ingrese la fecha de fin del fermentado:',
-        					'id':'fecha_inicio',
+        					'id':'datetimepicker2',
                             'class': 'form-control datetimepicker-input',
             				'data-target': '#datetimepicker2',
 							'required':'true',
-							'type': 'datetime'
+							'type': 'text',
+                            'autocomplete':'off'
         					}
         			),
                 'litros_entrada': forms.NumberInput( 
@@ -61,7 +63,7 @@ class FermentadoForm(forms.ModelForm):
         			),
                 'produccion': forms.Select( 
         			attrs=	{
-        					'placeholder':'produccion',
+        					'placeholder':'Produccion',
         					'id':'produccion',
                             'class':'form-control',
 							'required':'true'

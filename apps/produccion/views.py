@@ -16,7 +16,7 @@ class CreateBarril(CreateView):
 
 class CreateFermentado(FormView):
    
-    form_class = ProduccionForm
+    form_class = FermentadoForm
     template_name = 'crear_fermentado.html'
     success_url = reverse_lazy('produccion:listar_fermentado')
 

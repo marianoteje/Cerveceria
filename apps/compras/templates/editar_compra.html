@@ -1,25 +1,64 @@
-<!-- Modal -->
-
-
-<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 class="modal-title">Edición de la compra: {{ object.fecha_compra }}</h3>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form id="form_edicion" action="{% url 'compras:editar_compra' object.id %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="modal-body">
-                {{ form.as_p }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
-            </div>
-        </form>
+{% extends 'base.html' %} {% load static %} {% block title %} Compra | agregar compra {% endblock title %} {% block content %}
+<div class="container-fluid" id="titulo">
+    <div class="row">
+        <h2>Editar compra</h2>
     </div>
 </div>
+<hr/>
+<div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
 
-<!--Fin modal-->
+    <form id="form_edicion" action="{% url 'compras:editar_compra' compra.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body">
+            {{ form.as_p }}
+        </div>
+
+        <div class="modal-footer">
+
+            <button href="{% url 'compras:listar_compra' %}" id="aceptar" type="submit" class="btn btn-secondary btn-lg">Cancelar</button>
+            <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %} {% block extrajs %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        defaultDate: new Date(),
+        changeMonth: true,
+        changeYear: true
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(function() {
+        $("#fecha").datepicker();
+    });
+</script>
+<script>
+    $(function() {
+        $("#datepickerCompra").datepicker({});
+    });
+
+    $(function() {
+        $("#datepickerVencimiento").datepicker({});
+    });
+</script>{% endblock extrajs %}

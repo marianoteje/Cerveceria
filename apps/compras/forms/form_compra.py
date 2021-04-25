@@ -30,6 +30,7 @@ class CompraForm(forms.ModelForm):
                     attrs={
                             'id':'id_proveedor',                           
                             'class':'form-control',
+                            'autocomplete':'off'
 
                     }),
         	
@@ -38,7 +39,8 @@ class CompraForm(forms.ModelForm):
 
         				    'id':'id_ingrediente',
         					'placeholder':'Ingrese el ingrediente',
-        					'class':'form-control'
+        					'class':'form-control',
+                            'autocomplete':'off'
 
         					}
         			),
@@ -52,22 +54,26 @@ class CompraForm(forms.ModelForm):
                     }
                 ),
                 'fecha_compra': forms.DateInput(
+               
                     attrs={
                             'placeholder':'Ingrese la fecha de compra',
-                            'class': 'form-control',
-                            'id':'fecha_compra',
-                            'type':'date', 
+                            'id':'datepickerCompra',
+                            'type':'text', 
+                            'class':'form-control',
                             'required':'true',
-                            'data-date-format':'mm/dd/yyyy'
+                            'name':'fecha_compra',
+                            'autocomplete':'off'
                     }
                 ),
                 'fecha_vencimiento': forms.DateInput(
                     attrs={
                             'placeholder':'Ingrese la fecha de vencimiento',
-                            'class': 'form-control',
-                            'id':'fecha_vencimiento',
-                            'type':'date', 
-                            'required':'false'
+                            'id':'datepickerVencimiento',
+                            'type':'text', 
+                            'class':'form-control',
+                            'required':'false',
+                            'name':'fecha_vencimiento',
+                            'autocomplete':'off'
                     }
                 ),
                 'cantidad': forms.NumberInput(
@@ -75,14 +81,16 @@ class CompraForm(forms.ModelForm):
                             'placeholder':'Ingrese la cantidad comprada en kilos',
                             'id':'cantidad',
                             'class':'form-control',
-							'min':'1'
+							'min':'1',
+                            'autocomplete':'off'
                     }
                 ),
                 'comentario': forms.TextInput(
                     attrs={
                             'placeholder':'Ingrese algun comentario',
                             'id':'comentario',
-                            'class':'form-control'
+                            'class':'form-control',
+                            'autocomplete':'off'
                     }
                 )
                 

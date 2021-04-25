@@ -20,7 +20,8 @@ class BarrilForm(forms.ModelForm):
         					'id':'codigo',
                             'class':'form-control',
 							'required':'true',
-							'type':'number'
+							'type':'number',
+                            'autocomplete':'off'
         					}
         			),
         		'capacidad': forms.NumberInput( 
@@ -29,7 +30,8 @@ class BarrilForm(forms.ModelForm):
         					'id':'capacidad',
                             'class':'form-control',
 							'min':'0',
-							'type':'number'
+							'type':'number',
+                            'autocomplete':'off'
         					}
         			)
         }

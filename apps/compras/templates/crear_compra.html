@@ -36,16 +36,18 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="fecha_vencimiento">{{form.fecha_compra.label}}</label> {{form.fecha_compra}}
 
+        </div>
 
         <div class="form-group">
-            <label for="fecha_compra">{{form.fecha_compra.label}}</label> {{ form.fecha_compra }}
+            <label for="fecha_vencimiento">{{form.fecha_vencimiento.label}}</label> {{form.fecha_vencimiento}}
+
         </div>
+
         <div class="form-group">
-            <label for="fecha_vencimiento">{{form.fecha_vencimiento.label}}</label> {{ form.fecha_vencimiento }}
-        </div>
-        <div class="form-group">
-            <label for="fecha_vencimiento">{{form.comentario.label}}</label> {{ form.comentario }}
+            <label for="comentario">{{form.comentario.label}}</label> {{ form.comentario }}
         </div>
 
 
@@ -58,4 +60,54 @@
 </div>
 
 
-{% endblock content %}
+{% endblock content %} {% block extrajs %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(function() {
+        $("#fecha").datepicker();
+    });
+</script>
+<script>
+    $(function() {
+        $("#datepickerCompra").datepicker({
+
+            dateFormat: 'dd/mm/yy ',
+            defaultDate: new Date(),
+            changeMonth: true,
+            changeYear: true
+
+        });
+    });
+
+    $(function() {
+        $("#datepickerVencimiento").datepicker({
+
+            dateFormat: 'dd/mm/yy ',
+            defaultDate: new Date(),
+            changeMonth: true,
+            changeYear: true
+
+        });
+    });
+</script>{% endblock extrajs %}

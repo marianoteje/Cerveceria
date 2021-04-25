@@ -1,41 +1,21 @@
-{% extends 'base.html' %} {% block title %} Fermentado | agregar ferementado {% endblock title %} {% block script %}
-<script>
-    $(function() {
-        $("#datetimepicker1").datetimepicker({
-            format: 'DD/MM/YYYY HH:mm',
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#datetimepicker2").datetimepicker({
-            format: 'DD/MM/YYYY HH:mm',
-        });
-    });
-</script>
-{% endblock script %} {% block content %}
-
-
-<h2>Crear ferementado</h2>
+{% extends 'base.html' %} {% load static %} {% block title %} Produccion | agregar fermentado {% endblock title %} {% block script %} {% endblock script %} {% block content %}
+<div class="container-fluid" id="titulo">
+    <div class="row">
+        <h2>Crear fermentado</h2>
+    </div>
+</div>
+<hr/>
 <div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
     <form method="POST">
-        {% csrf_token %} {{ form.fecha_inicio.label }}
-        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-            {{ form.fecha_inicio }}
-            <div id="datetimepicker1" class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-            </div>
+        {% csrf_token %}
+
+
+        <div class="form-group">
+            <label for="litros_entrada">{{form.fecha_inicio.label}}</label> {{ form.fecha_inicio}}
         </div>
-
-        {{ form.fecha_fin.label }}
-        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-            {{ form.fecha_fin }}
-            <div id="datetimepicker2" class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-            </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.fecha_fin.label}}</label> {{ form.fecha_fin}}
         </div>
-
-
         <div class="form-group">
             <label for="litros_entrada">{{form.litros_entrada.label}}</label> {{ form.litros_entrada}}
         </div>
@@ -45,13 +25,13 @@
         <div class="form-group">
             <label for="produccion">{{form.produccion.label}}</label> {{ form.produccion }}
         </div>
+
         <div class="row">
             <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
         </div>
 
     </form>
 </div>
-
 
 
 {% endblock content %}

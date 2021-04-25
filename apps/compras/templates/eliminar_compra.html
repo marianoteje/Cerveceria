@@ -15,7 +15,6 @@
                 <table class="table " id="mi-tabla">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
                             <th scope="col ">Proveedor</th>
                             <th scope="col ">Ingrediente</th>
                             <th scope="col ">Comentario</th>
@@ -29,7 +28,6 @@
                     <tbody>
 
                         <tr>
-                            <td> {{ compra.id}} </td>
                             <td> {{ compra.id_proveedor.nombre}} </td>
                             <td> {{ compra.id_ingrediente.nombre}} </td>
                             <td> {{ compra.comentario}}</td>
@@ -45,7 +43,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a href="{% url 'compras:listar_compra' %} " class="btn btn-secondary float-right " role="button " aria-pressed="true ">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Eliminar</button>
             </div>
         </form>
