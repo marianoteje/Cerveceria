@@ -12,8 +12,8 @@ class AdminBarril(admin.ModelAdmin):
 
 class AdminFermentado(admin.ModelAdmin):
 
-    fields=('fecha_inicio','fecha_fin','litros_entrada','litros_salida','produccion')
-    list_display = ('id','fecha_inicio','fecha_fin','litros_entrada','litros_salida','produccion')
+    fields=('fecha_inicio','fecha_fin','hora_inicio','hora_fin', 'litros_entrada','litros_salida','produccion')
+    list_display = ('id','fecha_inicio','fecha_fin','hora_inicio','hora_fin','litros_entrada','litros_salida','produccion')
 
 
 class AdminProduccion(admin.ModelAdmin):

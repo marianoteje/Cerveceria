@@ -11,36 +11,59 @@ class FermentadoForm(forms.ModelForm):
 
 	class Meta:
 		model = Fermentado
-		fields = ['fecha_inicio', 'fecha_fin', 'litros_entrada', 'litros_salida', 'produccion' ]
+		fields = ['fecha_inicio', 'fecha_fin','hora_inicio', 'hora_fin', 'litros_entrada', 'litros_salida', 'produccion' ]
 		labels = {
         		'fecha_inicio'  :'Fecha de inicio',
-        		'fecha_fin':'Fecha de fin',
-                'litros_entrada'  :'Litros de entrada',
+				'hora_inicio'  :'Hora de inicio',
+                'fecha_fin'  :'Fecha de fin',
+                'hora_fin'  :'Hora de fin',
+				'litros_entrada'  :'Litros de entrada',
         		'litros_salida':'Litros de salida',
-                'produccion':'Produccion',
+                'produccion':'Produccion'
+
         }
 
 		widgets = {
-        		'fecha_inicio': forms.DateTimeInput( 
+			
+				'fecha_inicio': forms.DateInput( 
         			attrs=	{
-        					'placeholder':'Ingrese la fecha de inicio del fermentado:',
-        					'id':'datetimepicker1',
-                            'class': 'form-control datetimepicker-input',
-            				'data-target': '#datetimepicker1',
-							'required':'true',
-							'type': 'text',
+        					'placeholder':'Ingrese fecha de inicio del fermentado:',
+        					'id':'datepickerFechaInicio',
+                            'type':'text', 
+                            'class':'form-control',
+                            'required':'true',
+                            'name':'fecha_compra',
                             'autocomplete':'off'
+						}
+        			),
+				
+        		'fecha_fin': forms.DateInput( 
+        			attrs=	{
+        					'placeholder':'Ingrese fecha de fin del fermentado:',
+        					'id':'datepickerFechaFin',
+                            'type':'text',
+                            'class':'form-control',
+                            'required':'true',
+                            'name':'meeting-time',
+                            'autocomplete':'off'   
         					}
         			),
-        		'fecha_fin': forms.DateTimeInput( 
+				'hora_inicio': forms.TimeInput( 
         			attrs=	{
-        					'placeholder':'Ingrese la fecha de fin del fermentado:',
-        					'id':'datetimepicker2',
-                            'class': 'form-control datetimepicker-input',
-            				'data-target': '#datetimepicker2',
-							'required':'true',
-							'type': 'text',
-                            'autocomplete':'off'
+        					'placeholder':'Ingrese hora de inicio del fermentado:',
+                            'type':'time', 
+                            'class':'form-control',
+                            'required':'true',
+                            'autocomplete':'off'                            
+        					}
+        			),
+        		'hora_fin': forms.TimeInput( 
+        			attrs=	{
+        					'placeholder':'Ingrese hora de fin del fermentado:',
+                            'type':'time', 
+                            'class':'form-control',
+                            'required':'true',
+                            'autocomplete':'off'   
         					}
         			),
                 'litros_entrada': forms.NumberInput( 

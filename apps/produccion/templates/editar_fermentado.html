@@ -9,7 +9,28 @@
     <form id="form_edicion" action="{% url 'produccion:editar_fermentado' object.id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="modal-body">
-            {{ form.as_p }}
+            <div class="form-group">
+                <label for="litros_entrada">{{form.fecha_inicio.label}}</label> {{ form.fecha_inicio}}
+            </div>
+            <div class="form-group">
+                <label for="litros_entrada">{{form.hora_inicio.label}}</label> {{ form.hora_inicio}}
+            </div>
+            <div class="form-group">
+                <label for="litros_entrada">{{form.fecha_fin.label}}</label> {{ form.fecha_fin}}
+            </div>
+            <div class="form-group">
+                <label for="litros_entrada">{{form.hora_fin.label}}</label> {{ form.hora_fin}}
+            </div>
+            <div class="form-group">
+                <label for="litros_entrada">{{form.litros_entrada.label}}</label> {{ form.litros_entrada}}
+            </div>
+            <div class="form-group">
+                <label for="litros_salida">{{form.litros_salida.label}}</label> {{ form.litros_salida }}
+            </div>
+            <div class="form-group">
+                <label for="produccion">{{form.produccion.label}}</label> {{ form.produccion }}
+            </div>
+
         </div>
         <div class="modal-footer">
             <button href="{% url 'produccion:listar_fermentado' %}" id="aceptar" type="submit" class="btn btn-secondary btn-lg" data-dismiss="modal">Cancelar</button>
@@ -19,4 +40,54 @@
 </div>
 
 
-{% endblock content %}
+{% endblock content %}{% block extrajs %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(function() {
+        $("#fecha").datepicker();
+    });
+</script>
+<script>
+    $(function() {
+        $("#datepickerFechaInicio").datepicker({
+
+            dateFormat: 'dd/mm/yy ',
+            defaultDate: new Date(),
+            changeMonth: true,
+            changeYear: true
+
+        });
+    });
+
+    $(function() {
+        $("#datepickerFechaFin").datepicker({
+
+            dateFormat: 'dd/mm/yy ',
+            defaultDate: new Date(),
+            changeMonth: true,
+            changeYear: true
+
+        });
+    });
+</script>{% endblock extrajs %}

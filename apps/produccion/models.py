@@ -32,8 +32,10 @@ class Ingrediente_Produccion(models.Model):
        return self.cantidad
 
 class Fermentado (models.Model):
-    fecha_inicio = models.DateTimeField(null=False, blank=False, verbose_name='Fecha inicio')
-    fecha_fin = models.DateTimeField(null=False, blank=False, verbose_name='Fecha fin')
+    fecha_inicio = models.DateField(null=False, blank=False, verbose_name='Fecha inicio')
+    hora_inicio = models.TimeField(max_length=255, null=False, blank=False, verbose_name='Hora inicio')
+    fecha_fin = models.DateField(null=False, blank=False, verbose_name='Fecha Fin')
+    hora_fin = models.TimeField(max_length=255,  null=False, blank=False, verbose_name='Hora Fin')
     litros_entrada = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, verbose_name='Litros de entrada')
     litros_salida = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, verbose_name='Litros de salida')
     activo = models.BooleanField(default=True)
