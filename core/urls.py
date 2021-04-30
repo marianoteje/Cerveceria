@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('compras/',include(('apps.compras.urls','compras'))),
     path('produccion/',include(('apps.produccion.urls','produccion'))),
+    path('ventas/',include(('apps.ventas.urls','ventas'))),
     path('',Home.as_view(), name='index')
 ]
