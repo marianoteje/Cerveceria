@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %} Compras | listar compra {% endblock title %} {% block script %}
+{% extends 'base.html' %} {% block title %} Ventas | listar clientes {% endblock title %} {% block script %}
 <script>
     function myFunction() {
         //Funcion para filtrar de la tabla
@@ -29,7 +29,6 @@
                 txtValue6 = td6.textContent || td6.innerText;
                 txtValue7 = td7.textContent || td7.innerText;
 
-
                 if ((txtValue.toUpperCase().indexOf(filter) > -1) ||
                     (txtValue1.toUpperCase().indexOf(filter) > -1) ||
                     (txtValue2.toUpperCase().indexOf(filter) > -1) ||
@@ -47,6 +46,8 @@
     }
 </script>
 
+
+
 <script>
     //Funcion para ordenar las columnas
     $(function() {
@@ -55,17 +56,6 @@
     });
 </script>
 
-<script>
-    function checkMostrar() {
-        // Get the checkbox
-        var checkBox = document.getElementById("listar");
-        // If the checkbox is checked, display the output text
-        if (checkBox.checked == true) {
-            load('{% url '
-                compras: editar_compra ' %}');
-        }
-    }
-</script>
 
 
 {% endblock script %} {% block content %}
@@ -77,7 +67,8 @@
 <!--Fin modal editar-->
 
 
-<h2>Listado compras</h2>
+
+<h2>Listado clientes</h2>
 <div id="container-fluid">
     <div class="row">
         <div class="col-4">
@@ -94,7 +85,7 @@
             </div>
         </div>
         <div class="col-4 " style="margin-bottom: 20px; ">
-            <a href="{% url 'compras:crear_compra' %} " class="btn btn-secondary float-right " role="button " aria-pressed="true ">Crear compra</a>
+            <a href="{% url 'ventas:crear_cliente' %} " class="btn btn-secondary float-right " role="button " aria-pressed="true ">Crear clientes</a>
         </div>
     </div>
 </div>
@@ -106,48 +97,52 @@
                 <thead>
                     <tr>
                         <th style="cursor: pointer;">#</th>
-                        <th scope="col " style="cursor: pointer; ">Proveedor</th>
-                        <th scope="col " style="cursor: pointer; ">Ingrediente</th>
-                        <th scope="col " style="cursor: pointer; ">Comentario</th>
-                        <th scope="col " style="cursor: pointer; ">Costo</th>
-                        <th scope="col " style="cursor: pointer; ">Cantidad</th>
-                        <th data-sorter="shortDate" data-date-format="ddmmyyyy" scope="col " style="cursor: pointer; ">Fecha de compra</th>
-                        <th data-sorter="shortDate" data-date-format="ddmmyyyy" scope="col " style="cursor: pointer; ">Fecha de vencimiento</th>
+                        <th scope="col " style="cursor: pointer; ">Razon Social</th>
+                        <th scope="col " style="cursor: pointer; ">Ciudad</th>
+                        <th scope="col " style="cursor: pointer; ">Telefono</th>
+                        <th scope="col " style="cursor: pointer; ">Email</th>
+                        <th scope="col " style="cursor: pointer; ">Direccion</th>
+                        <th scope="col " style="cursor: pointer; ">CUIT</th>
+                        <th scope="col " style="cursor: pointer; ">Situacion frente IVA</th>
+                        <th scope="col " style="cursor: pointer; ">Comentarios</th>
+
                         <th scope="col ">Eliminar</th>
                         <th scope="col ">Editar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for compra in compras %}
+                    {% for cliente in clientes %}
 
                     <tr>
-                        <td> {{ compra.id}} </td>
-                        <td> {{ compra.id_proveedor.nombre}} </td>
-                        <td> {{ compra.id_ingrediente.nombre}} </td>
-                        <td> {{ compra.comentario}}</td>
-                        <td> {{ compra.costo}} </td>
-                        <td> {{ compra.cantidad}} </td>
-                        <td> {{ compra.fecha_compra}}</td>
-                        <td> {{ compra.fecha_vencimiento}}</td>
-
+                        <td> {{ cliente.id}} </td>
+                        <td> {{ cliente.razon_social}} </td>
+                        <td> {{ cliente.ciudad}} </td>
+                        <td> {{ cliente.telefono}}</td>
+                        <td> {{ cliente.email}} </td>
+                        <td> {{ cliente.direccion}} </td>
+                        <td> {{ cliente.cuit}} </td>
+                        <td> {{ cliente.situacion_frente_iva.descripcion}}</td>
+                        <td> {{ cliente.comentarios}}</td>
                         <td>
 
-                            <button onclick="abrir_modal_edicion('{% url 'compras:eliminar_compra' compra.id%}')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-trash " viewBox="0 0 16 16 ">
-                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z "/>
-                                <path fill-rule="evenodd " d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882
-                                4H4.118zM2.5 3V2h11v1h-11z "/></svg>
-                            </button>
+                            <button onclick="abrir_modal_edicion('{% url 'ventas:eliminar_cliente' cliente.id%}')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg></button>
+
+
                         </td>
+
+
                         <td>
 
-
-                            <a href="{% url 'compras:editar_compra' compra.id%} "><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <a href="{% url 'ventas:editar_cliente' cliente.id%} "><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                 
                             </svg></a>
-                        </td>
 
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

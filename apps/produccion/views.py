@@ -5,6 +5,7 @@ from django.forms.models import formset_factory
 from .forms.form_barril import BarrilForm
 from .forms.form_fermentado import FermentadoForm
 from .forms.form_produccion import ProduccionForm
+from .forms.form_lote import LoteForm
 from .models import Produccion, Barril, Fermentado, Lote
 
 
@@ -26,6 +27,11 @@ class CreateProduccion(CreateView):
     template_name = 'crear_produccion.html'
     success_url = reverse_lazy('produccion:crear_produccion')
 
+class CreateLote(CreateView):
+    model = Lote
+    form_class = LoteForm
+    template_name = 'crear_lote.html'
+    success_url = reverse_lazy('produccion:crear_lote')
 class listarBarril(ListView):
     model = Barril
     queryset = Barril.objects.filter(activo = True)
@@ -49,6 +55,11 @@ class listarProduccion(ListView):
     context_object_name = 'producciones'
     template_name = 'listar_produccion.html'
 
+class listarLote(ListView):
+    model = Lote
+    queryset = Lote.objects.filter(activo = True)
+    context_object_name = 'lotes'
+    template_name = 'listar_lote.html'
 
 class editarBarril(UpdateView):
     model = Barril
@@ -68,6 +79,12 @@ class editarProduccion(UpdateView):
     form_class = ProduccionForm
     template_name = 'editar_produccion.html'
     success_url = reverse_lazy('produccion:listar_produccion')
+
+class editarLote(UpdateView):
+    model = Lote
+    form_class = LoteForm
+    template_name = 'editar_lote.html'
+    success_url = reverse_lazy('produccion:listar_lote')
 
 class eliminarBarril(DeleteView):
     model = Barril
@@ -101,3 +118,14 @@ class eliminarProduccion(DeleteView):
         object.activo = False
         object.save()
         return redirect('produccion:listar_produccion')
+
+
+class eliminarLote(DeleteView):
+    model = Lote
+    template_name = 'eliminar_lote.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Lote.objects.get (id = pk)
+        object.activo = False
+        object.save()
+        return redirect('produccion:listar_lote')

@@ -3,6 +3,7 @@ from django.db import models
 class Proveedor (models.Model):
     nombre = models.CharField(max_length=255, null=False, blank= False)
     descripcion = models.TextField(null=False, blank=True, default='Sin descripcion')
+    ciudad = models.CharField(max_length=255, null=False, blank= False)
     telefono = models.CharField(max_length=100, null=False, blank=True)
     email = models.EmailField(max_length=255, null=False, blank=True)
     direccion = models.CharField(max_length=255, null=False, blank=True)

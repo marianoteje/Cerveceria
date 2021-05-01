@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Produccion | agregar lote {% endblock title %} {% block content %}
+<div class="container-fluid" id="titulo">
+    <div class="row">
+        <h2>Crear lote</h2>
+    </div>
+</div>
+<hr/>
+<div class="class=" col-md-6 col-sm-6 col-xs-6 pad-adjust "">
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="litros_entrada">{{form.fecha_llenado.label}}</label> {{ form.fecha_llenado}}
+        </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.hora_llenado.label}}</label> {{ form.hora_llenado}}
+        </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.fecha_carbonatado.label}}</label> {{ form.fecha_carbonatado}}
+        </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.hora_carbonatado.label}}</label> {{ form.hora_carbonatado}}
+        </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.barriles.label}}</label> {{ form.barriles}}
+        </div>
+        <div class="form-group">
+            <label for="litros_entrada">{{form.id_produccion.label}}</label> {{ form.id_produccion}}
+        </div>
+
+        <div class="row">
+            <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock content %}{% block extrajs %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(function() {
+        $("#fecha").datepicker();
+    });
+</script>
+<script>
+    $(function() {
+        $("#fecha_llenado").datepicker({
+
+            dateFormat: 'dd/mm/yy ',
+            defaultDate: new Date(),
+            changeMonth: true,
+            changeYear: true
+
+        });
+    });
+
+    $(function() {
+        $("#fecha_carbonatado").datepicker({
+
+            dateFormat: 'dd/mm/yy ',
+            defaultDate: new Date(),
+            changeMonth: true,
+            changeYear: true
+
+        });
+    });
+</script>{% endblock extrajs %}

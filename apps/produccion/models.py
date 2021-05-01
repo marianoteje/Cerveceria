@@ -3,11 +3,12 @@ from apps.compras.models import Ingrediente
 from Validaciones.validaciones import *
 
 class Barril (models.Model):
-    codigo = models.IntegerField(null=False, blank=True)
+    codigo = models.CharField(max_length=100, null=False, blank=True)
     capacidad = models.IntegerField(null=False, blank=True, default= '0')
     activo = models.BooleanField(default=True)
     
-
+    def __str__(self):
+       return self.codigo
 
 class Produccion (models.Model):
     
@@ -33,17 +34,19 @@ class Ingrediente_Produccion(models.Model):
 
 class Fermentado (models.Model):
     fecha_inicio = models.DateField(null=False, blank=False, verbose_name='Fecha inicio')
-    hora_inicio = models.TimeField(max_length=255, null=False, blank=False, verbose_name='Hora inicio')
+    hora_inicio = models.TimeField(null=False, blank=False, verbose_name='Hora inicio')
     fecha_fin = models.DateField(null=False, blank=False, verbose_name='Fecha Fin')
-    hora_fin = models.TimeField(max_length=255,  null=False, blank=False, verbose_name='Hora Fin')
+    hora_fin = models.TimeField(null=False, blank=False, verbose_name='Hora Fin')
     litros_entrada = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, verbose_name='Litros de entrada')
     litros_salida = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, verbose_name='Litros de salida')
     activo = models.BooleanField(default=True)
     produccion = models.ForeignKey(Produccion, null=False, blank=False, default=0, on_delete=models.PROTECT)
 
 class Lote (models.Model):
-    fecha_llenado = models.DateTimeField(null=False, blank=False)
-    fecha_carbonatado = models.DateTimeField(null=False, blank=False)
+    fecha_llenado = models.DateField(null=False, blank=False, verbose_name='Fecha llenado')
+    hora_llenado = models.TimeField(default='00:00', null=False, blank=True, verbose_name='Hora lleando')
+    fecha_carbonatado = models.DateField(null=False, blank=False, verbose_name='Fecha carbonatado')
+    hora_carbonatado = models.TimeField(default='00:00', null=False, blank=True, verbose_name='Hora carbonatado')
     barriles = models.ManyToManyField(Barril)
     id_produccion = models.ForeignKey(Produccion, on_delete=models.PROTECT, verbose_name='Produccion')
     activo = models.BooleanField(default=True)

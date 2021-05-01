@@ -46,7 +46,7 @@ class CompraForm(forms.ModelForm):
         			),
                 'costo': forms.NumberInput(
                     attrs= {
-                            'placeholder':'Ingrese el costo',
+                            'placeholder':'Ingrese el costo de la compra',
                             'id':'costo',
                             'class':'form-control',
 							'min':'1',
@@ -87,7 +87,7 @@ class CompraForm(forms.ModelForm):
                 ),
                 'comentario': forms.TextInput(
                     attrs={
-                            'placeholder':'Ingrese algun comentario',
+                            'placeholder':'Ingrese algun comentario de la compra',
                             'id':'comentario',
                             'class':'form-control',
                             'autocomplete':'off'

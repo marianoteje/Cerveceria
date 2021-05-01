@@ -7,17 +7,17 @@ class ClientesForm(forms.ModelForm):
         super(ClientesForm,self).__init__(*args,**kwargs)
         self.fields['situacion_frente_iva'].empty_label='Situacion dfrente a IVA'
 
+
     class Meta:
         model = Cliente
-        fields = ['razon_social','ciudad','telefono', 'email','calle','altura','cuit','situacion_frente_iva', 'comentarios']
+        fields = ['razon_social','ciudad','telefono', 'email','direccion','cuit','situacion_frente_iva', 'comentarios']
         labels = {
         		
         		'razon_social':'Razon social',
                 'ciudad':'Ciudad',
                 'telefono':'Telefono',
                 'email':'Email',
-                'calle':'Calle',
-                'altura':'Altura',
+                'direccion':'Direccion',
                 'cuit':'CUIT',
                 'situacion_frente_iva':'Situacion frente a IVA',
                 'comentarios':'Comentarios'    
@@ -39,12 +39,12 @@ class ClientesForm(forms.ModelForm):
         					'placeholder':'Ingrese la ciudad',
         					'class':'form-control',
                             'autocomplete':'off',
-                            'required':'true'
+                         
         					}
         			),
                 'telefono': forms.TextInput(
                     attrs={
-                            'placeholder':'Ingrese el costo',
+                            'placeholder':'Ingrese el telefono del cliente',
                             'id':'costo',
                             'class':'form-control',
                             'required':'true',
@@ -62,36 +62,25 @@ class ClientesForm(forms.ModelForm):
 							'type':'email'
                     }
                 ),
-                'calle': forms.TextInput(
-               
+                'direccion': forms.TextInput(
                     attrs={
-                            'placeholder':'Ingrese la fecha de compra',
+                            'placeholder':'Ingrese la direccion del cliente',
                             'id':'datepickerCompra',
                             'type':'text', 
                             'class':'form-control',
                             'autocomplete':'off',
                             'required':'true',
-                            'name':'calle',
-                    }
-                ),
-                'altura': forms.TextInput(
-                    attrs={
-                            'placeholder':'Ingrese la altura de la calle',
-                            'id':'altura',
-                            'type':'text', 
-                            'class':'form-control',
-                            'required':'true',
-                            'autocomplete':'off',
-                            'name':'altura'
+                            'name':'direccion',
                     }
                 ),
                 'cuit': forms.TextInput(
                     attrs={
-                            'placeholder':'Ingrese el CUIT del cliente',
+                            'placeholder':'Ingrese el CUIT del cliente sin guiones',
                             'id':'cuit',
                             'class':'form-control',
                             'required':'true',
-                            'autocomplete':'off'
+                            'autocomplete':'off',
+                            
                     }
                 ),
                 'comentarios': forms.TextInput(

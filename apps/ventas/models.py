@@ -27,11 +27,10 @@ class Situacion_frente_iva (models.Model):
 
 class Cliente (models.Model):
     razon_social = models.CharField(max_length=255, null=False, blank= False)
-    ciudad = models.CharField(max_length=100, null=False, blank= False)
+    ciudad = models.CharField(max_length=255, null=False, blank= False)
     telefono = models.CharField(max_length=100, null=False, blank= False)
     email = models.EmailField(null=False, blank= True)
-    calle = models.CharField(max_length=100, null=False, blank= False)
-    altura = models.CharField(max_length=100, null=False, blank= False)
+    direccion = models.CharField(max_length=100, null=False, blank= False)
     cuit = models.CharField(max_length=15, null=False, blank= False)
     situacion_frente_iva = models.ForeignKey(Situacion_frente_iva, null=False, blank=False, default=0, on_delete=models.PROTECT)
     comentarios = models.TextField(null=True, blank=True, default='Sin comentarios')
@@ -42,10 +41,10 @@ class Cliente (models.Model):
 
 class Forma_de_pago (models.Model):
     codigo = models.IntegerField(null=False, blank=False)
-    descripción = models.TextField(null=False, blank=False)
+    descripcion = models.TextField(null=False, blank=False)
 
     def __str__(self):
-        return self.descripción
+        return self.descripcion
 
 
 #forma de pago

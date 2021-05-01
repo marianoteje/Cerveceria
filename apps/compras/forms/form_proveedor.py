@@ -5,10 +5,11 @@ class ProveedorForm(forms.ModelForm):
 
     class Meta:
         model = Proveedor
-        fields = ['nombre', 'descripcion','telefono','email','direccion']
+        fields = ['nombre', 'descripcion', 'ciudad','telefono','email','direccion']
         labels = {
         		'nombre'  :'Nombre del proveedor',
         		'descripcion':'Descripcion',
+                'ciudad':'Ciudad',
                 'telefono':'Telefono',
                 'email':'Email',
                 'direccion':'Direccion'
@@ -26,15 +27,24 @@ class ProveedorForm(forms.ModelForm):
         			),
         		'descripcion': forms.TextInput( 
         			attrs=	{
-        					'placeholder':'Ingrese descripcion',
+        					'placeholder':'Ingrese descripcion del proveedor',
         					'id':'descripcion',
                             'class':'form-control',
                             'autocomplete':'off'
         					}
         			),
+                'ciudad': forms.TextInput( 
+        			attrs={
+
+        				    'id':'ciudad',
+        					'placeholder':'Ingrese la ciudad del proveedor',
+        					'class':'form-control',
+                            'autocomplete':'off',
+        					}
+        			),
                 'telefono': forms.TextInput(
                     attrs= {
-                            'placeholder':'Ingrese telefono',
+                            'placeholder':'Ingrese telefono del proveedor',
                             'id':'telefono',
                             'class':'form-control',
 							'required':'true',
@@ -43,7 +53,7 @@ class ProveedorForm(forms.ModelForm):
                 ),
                 'email': forms.EmailInput(
                     attrs={
-                            'placeholder':'Ingrese email',
+                            'placeholder':'Ingrese email del proveedor',
                             'id':'email',
                             'type': 'email',
                             'class':'form-control',
@@ -54,7 +64,7 @@ class ProveedorForm(forms.ModelForm):
                 ),
                 'direccion': forms.TextInput(
                     attrs={
-                            'placeholder':'Ingrese direccion',
+                            'placeholder':'Ingrese direccion del proveedor',
                             'id':'Ingrese direccion',
                             'class':'form-control',
 							'required':'true',
