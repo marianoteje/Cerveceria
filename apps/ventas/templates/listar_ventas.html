@@ -107,7 +107,17 @@
                         <td> {{ venta.fecha}} </td>
                         <td> {{ venta.descripcion}} </td>
                         <td> {{ venta.valor}} </td>
-                        <td> {{ venta.barriles}}</td>
+                        <td>
+                            <ul>
+
+
+                                {% for barril in venta.barriles.all %}
+
+                                <li>{{ barril.codigo}}</li>
+
+                                {% endfor %}
+                            </ul>
+                        </td>
                         <td> {{ venta.cliente}} </td>
                         <td> {{ venta.forma_de_pago}} </td>
                         <td>

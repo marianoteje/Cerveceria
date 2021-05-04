@@ -32,7 +32,17 @@
                             <td> {{ object.fecha}} </td>
                             <td> {{ object.descripcion}} </td>
                             <td> {{ object.valor}} </td>
-                            <td> {{ object.barriles}}</td>
+                            <td>
+                                <ul>
+
+
+                                    {% for barril in object.barriles.all %}
+
+                                    <li>{{ barril.codigo}}</li>
+
+                                    {% endfor %}
+                                </ul>
+                            </td>
                             <td> {{ object.cliente}} </td>
                             <td> {{ object.forma_de_pago}} </td>
                         </tr>

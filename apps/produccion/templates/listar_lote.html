@@ -49,7 +49,17 @@
             <td> {{ lote.id}} </td>
             <td> {{ lote.fecha_llenado}} {{lote.hora_llenado}} </td>
             <td> {{ lote.fecha_carbonatado}} {{lote.hora_carbonatado}} </td>
-            <td> {{ lote.barriles}} </td>
+            <td>
+                <ul>
+
+
+                    {% for barril in lote.barriles.all %}
+
+                    <li>{{ barril.codigo}}</li>
+
+                    {% endfor %}
+                </ul>
+            </td>
             <td> {{ lote.id_produccion.descripcion}} </td>
 
             <td>
