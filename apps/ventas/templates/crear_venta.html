@@ -17,7 +17,7 @@
         {% csrf_token %}
 
         <div class="form-group">
-            <label for="id_proveedor">{{form.fecha.label}}</label>
+            <label for="fecha">{{form.fecha.label}}</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
@@ -64,6 +64,7 @@
 
 
 {% endblock content %}{% block extrajs %}
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -92,7 +93,7 @@
 </script>
 <script>
     $(function() {
-        $("#fecha").datepicker({
+        $("#fecha_venta").datepicker({
 
             dateFormat: 'dd/mm/yy ',
             defaultDate: new Date(),

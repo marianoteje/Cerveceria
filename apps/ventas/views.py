@@ -21,6 +21,12 @@ class ListarCliente(ListView):
     context_object_name = 'clientes'
     template_name = 'listar_cliente.html'
 
+class ListarClienteFull(ListView):
+    model = Cliente
+    queryset = Cliente.objects.all()
+    context_object_name = 'clientes'
+    template_name = 'listar_cliente.html'
+
 class EditarCliente(UpdateView):
     model = Cliente
     form_class = ClientesForm
@@ -49,6 +55,12 @@ class CreateVenta(CreateView):
 class ListarVenta(ListView):
     model = Ventas
     queryset = Ventas.objects.filter(activo = True)
+    context_object_name = 'ventas'
+    template_name = 'listar_ventas.html'
+
+class ListarVentaFull(ListView):
+    model = Ventas
+    queryset = Ventas.objects.all()
     context_object_name = 'ventas'
     template_name = 'listar_ventas.html'
 

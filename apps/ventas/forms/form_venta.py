@@ -26,7 +26,7 @@ class VentaForm(forms.ModelForm):
                 'fecha': forms.DateInput(
                     attrs={
                             'placeholder':'Ingrese la fecha de la venta',
-                            'id':'fecha',
+                            'id':'fecha_venta',
                             'class':'form-control',
                             'required':'true',
                             'autocomplete':'off',
