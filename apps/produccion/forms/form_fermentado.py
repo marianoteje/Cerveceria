@@ -24,7 +24,6 @@ class FermentadoForm(forms.ModelForm):
         }
 
 		widgets = {
-			
 				'fecha_inicio': forms.DateInput( 
         			attrs=	{
         					'placeholder':'Ingrese fecha de inicio del fermentado:',
@@ -36,7 +35,6 @@ class FermentadoForm(forms.ModelForm):
                             'autocomplete':'off'
 						}
         			),
-				
         		'fecha_fin': forms.DateInput( 
         			attrs=	{
         					'placeholder':'Ingrese fecha de fin del fermentado:',

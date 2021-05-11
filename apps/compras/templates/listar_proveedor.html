@@ -17,7 +17,7 @@
             td3 = tr[i].getElementsByTagName("td")[3];
             td4 = tr[i].getElementsByTagName("td")[4];
             td5 = tr[i].getElementsByTagName("td")[5];
-
+            td6 = tr[i].getElementsByTagName("td")[6];
 
             if (td) {
                 txtValue = td.textContent || td.innerText;
@@ -26,13 +26,15 @@
                 txtValue3 = td3.textContent || td3.innerText;
                 txtValue4 = td4.textContent || td4.innerText;
                 txtValue5 = td5.textContent || td5.innerText;
+                txtValue6 = td6.textContent || td6.innerText;
 
                 if ((txtValue.toUpperCase().indexOf(filter) > -1) ||
                     (txtValue1.toUpperCase().indexOf(filter) > -1) ||
                     (txtValue2.toUpperCase().indexOf(filter) > -1) ||
                     (txtValue3.toUpperCase().indexOf(filter) > -1) ||
                     (txtValue4.toUpperCase().indexOf(filter) > -1) ||
-                    (txtValue5.toUpperCase().indexOf(filter) > -1)) {
+                    (txtValue5.toUpperCase().indexOf(filter) > -1) ||
+                    (txtValue6.toUpperCase().indexOf(filter) > -1)) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
@@ -46,6 +48,22 @@
     $(function() {
         $('#mi-tabla').tablesorter();
     });
+</script>
+
+<!--Funcion que cambia el listado de activos y no activos-->
+<script>
+    $( document ).ready(function() {
+    var URLactual = window.location.href;
+    
+    let posicion = URLactual.indexOf('listar_proveedor_full');
+    var a = document.getElementById("filtro_listado");
+
+    if (posicion !== -1){
+        a.setAttribute('href', '{% url "compras:listar_proveedor" %}');
+        a.textContent = "Listar solo activos";
+    }
+
+});
 </script>
 
 {% endblock script %} {% block content %}
@@ -64,15 +82,15 @@
                 <input id="busqueda" class="form-control mr-sm-2 float-left" onkeyup="myFunction()" type="text" placeholder="Ingrese algun dato" aria-label="Ingrese algun dato de busqueda">
             </form>
         </div>
-        <div class="col-2">
-            <div class="input-group-prepend" style="margin-bottom: 20px;">
+        <div class="col-4">
+            <div class="input-group-prepend " style="margin-bottom: 20px;">
                 <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input" style="cursor: pointer; ">
+                    <a id="filtro_listado" href="{% url 'compras:listar_proveedor_full' %} ">Listar todos los proveedores</a>
                 </div>
-                <span class="input-group-text" id="">Mostrar inactivos</span>
+                
             </div>
         </div>
-        <div class="col-6" style="margin-bottom: 20px;">
+        <div class="col-4" style="margin-bottom: 20px;">
             <a href="{% url 'compras:crear_proveedor' %}" class="btn btn-secondary float-right" role="button" aria-pressed="true">Crear proveedor</a>
         </div>
     </div>
@@ -88,8 +106,7 @@
             <th scope="col" style="cursor: pointer;">Email</th>
             <th scope="col" style="cursor: pointer;">Ciudad</th>
             <th scope="col" style="cursor: pointer;">Direccion</th>
-            <th scope="col">Eliminar</th>
-            <th scope="col">Editar</th>
+            <th scope="col">Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -106,18 +123,18 @@
 
             <td>
 
+                {% if proveedor.activo%}
                 <button onclick="abrir_modal_edicion('{% url 'compras:eliminar_proveedor' proveedor.id%}')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                 </svg></button>
-            </td>
-            <td>
-
                 <a href="{% url 'compras:editar_proveedor' proveedor.id%} "><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                    
                 </svg></a>
+                {% else %}
+                <button>Boton</button>
+                {%endif%}
             </td>
 
         </tr>

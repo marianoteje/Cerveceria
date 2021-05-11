@@ -63,10 +63,10 @@
     let posicion = URLactual.indexOf('listar_cliente_full');
     var a = document.getElementById("filtro_listado");
 
-    if (posicion !== -1)
+    if (posicion !== -1){
         a.setAttribute('href', '{% url "ventas:listar_cliente" %}');
-        a.innerText = "Listar solo activos";
-    else
+        a.textContent = "Listar solo activos";
+    }else
         console.log("No encontré lo que estás buscando");
 
 });

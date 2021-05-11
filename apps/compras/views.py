@@ -48,20 +48,28 @@ class ListarCompra(ListView):
     context_object_name = 'compras'
     template_name = 'listar_compra.html'
 
+
+class listarProveedorFull(ListView):
+    model = Proveedor
+    queryset = Proveedor.objects.all()
+    context_object_name = 'proveedores'
+    template_name = 'listar_proveedor.html'
+
+class ListarIngredienteFull(ListView):
+    model = Ingrediente
+    queryset = Ingrediente.objects.all()
+    context_object_name = 'ingredientes'
+    template_name = 'listar_ingrediente.html'
+
+class ListarCompraFull(ListView):
+    model = Compra
+    queryset = Compra.objects.all()
+    context_object_name = 'compras'
+    template_name = 'listar_compra.html'
 class listarProveedorNoActivos(ListView):
     model = Proveedor
     context_object_name = 'proveedores'
     template_name = 'listar_proveedor.html'
-
-class ListarIngredienteNoActivos(ListView):
-    model = Ingrediente
-    context_object_name = 'ingredientes'
-    template_name = 'listar_ingrediente.html'
-
-class ListarCompraNoActivos(ListView):
-    model = Compra
-    context_object_name = 'compras'
-    template_name = 'listar_compra.html'
 
 class editarProveedor(UpdateView):
     model = Proveedor
