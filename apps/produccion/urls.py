@@ -1,3 +1,4 @@
+from apps.ventas.views import reactivarCliente
 from django.urls import path
 from .views import *
 
@@ -22,6 +23,11 @@ urlpatterns = [
     path('eliminar_fermentado/<int:pk>', eliminarFermentado.as_view(), name='eliminar_fermentado'),
     path('eliminar_produccion/<int:pk>', eliminarProduccion.as_view(), name='eliminar_produccion'),
     path('eliminar_lote/<int:pk>', eliminarLote.as_view(), name='eliminar_lote'),
+    path('reactivar_barril/<int:pk>', reactivarBarril.as_view(), name='reactivar_barril'),
+    path('reactivar_fermentado/<int:pk>', reactivarFermentado.as_view(), name='reactivar_fermentado'),
+    path('reactivar_produccion/<int:pk>', reactivarProduccion.as_view(), name='reactivar_produccion'),
+    path('reactivar_lote/<int:pk>', reactivarLote.as_view(), name='reactivar_lote'),
+    
     
     
 ]

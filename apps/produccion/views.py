@@ -114,7 +114,6 @@ class eliminarBarril(DeleteView):
         object.save()
         return redirect('produccion:listar_barril')
 
-
 class eliminarFermentado(DeleteView):
     model = Fermentado
     template_name = 'eliminar_fermentado.html'
@@ -145,5 +144,49 @@ class eliminarLote(DeleteView):
     def post(self, request, pk, *args, **kwargs):
         object = Lote.objects.get (id = pk)
         object.activo = False
+        object.save()
+        return redirect('produccion:listar_lote')
+
+
+class reactivarBarril(DeleteView):
+    model = Barril
+    template_name = 'reactivar_barril.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Barril.objects.get (id = pk)
+        object.activo = True
+        object.save()
+        return redirect('produccion:listar_barril')
+
+class reactivarFermentado(DeleteView):
+    model = Fermentado
+    template_name = 'reactivar_fermentado.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Fermentado.objects.get (id = pk)
+        object.activo = True
+        object.save()
+        return redirect('produccion:listar_fermentado')
+
+
+
+class reactivarProduccion(DeleteView):
+    model = Produccion
+    template_name = 'reactivar_produccion.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Produccion.objects.get (id = pk)
+        object.activo = True
+        object.save()
+        return redirect('produccion:listar_produccion')
+
+
+class reactivarLote(DeleteView):
+    model = Lote
+    template_name = 'reactivar_lote.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Lote.objects.get (id = pk)
+        object.activo = True
         object.save()
         return redirect('produccion:listar_lote')

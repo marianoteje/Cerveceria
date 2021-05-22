@@ -12,4 +12,6 @@ urlpatterns = [
     path('listar_venta_full/', ListarVentaFull.as_view(), name='listar_venta_full'),
     path('eliminar_venta/<int:pk>', EliminarVenta.as_view(), name='eliminar_venta'),
     path('editar_venta/<int:pk>', EditarVenta.as_view(), name='editar_venta'),
+    path('reactivar_cliente/<int:pk>', reactivarCliente.as_view(), name='reactivar_cliente'),
+    
 ]

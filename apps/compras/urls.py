@@ -16,5 +16,9 @@ urlpatterns = [
     path('editar_compra/<int:pk>', editarCompra.as_view(), name='editar_compra'),
     path('eliminar_compra/<int:pk>', eliminarCompra.as_view(), name='eliminar_compra'),
     path('eliminar_ingrediente/<int:pk>', eliminarIngrediente.as_view(), name='eliminar_ingrediente'),
-    path('eliminar_proveedor/<int:pk>', eliminarProveedor.as_view(), name='eliminar_proveedor')
+    path('eliminar_proveedor/<int:pk>', eliminarProveedor.as_view(), name='eliminar_proveedor'),
+    path('reactivar_compra/<int:pk>', reactivarCompra.as_view(), name='reactivar_compra'),
+    path('reactivar_ingrediente/<int:pk>', reactivarIngrediente.as_view(), name='reactivar_ingrediente'),
+    path('reactivar_proveedor/<int:pk>', reactivarProveedor.as_view(), name='reactivar_proveedor'),
+    
 ]

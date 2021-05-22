@@ -68,7 +68,7 @@
                     
                 </svg></a>
                 {% else %}
-                    <button>Reactivar</button>
+                <button onclick="abrir_modal_edicion('{% url 'produccion:reactivar_fermentado' fermentado.id%}')" type="submit" class="btn btn-outline-secondary"> Reactivar</button>
                 {% endif %}
             </td>
 

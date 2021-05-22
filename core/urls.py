@@ -24,5 +24,6 @@ urlpatterns = [
     path('compras/',include(('apps.compras.urls','compras'))),
     path('produccion/',include(('apps.produccion.urls','produccion'))),
     path('ventas/',include(('apps.ventas.urls','ventas'))),
+    path('dashboard/',include(('apps.dashboard.urls','dashboard'))),
     path('',Home.as_view(), name='index')
 ]

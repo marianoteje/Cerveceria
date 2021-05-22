@@ -1,0 +1,53 @@
+<!-- Modal -->
+
+
+<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">¿Esta seguro que quiere reactivar la compra con fecha: {{ object.fecha_compra }}?</h3>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'compras:reactivar_compra' object.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                <table class="table " id="mi-tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col ">Proveedor</th>
+                            <th scope="col ">Ingrediente</th>
+                            <th scope="col ">Comentario</th>
+                            <th scope="col ">Costo</th>
+                            <th scope="col ">Cantidad</th>
+                            <th scope="col ">Fecha de compra</th>
+                            <th scope="col ">Fecha de vencimiento</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td> {{ compra.id_proveedor.nombre}} </td>
+                            <td> {{ compra.id_ingrediente.nombre}} </td>
+                            <td> {{ compra.comentario}}</td>
+                            <td> {{ compra.costo}} </td>
+                            <td> {{ compra.cantidad}} </td>
+                            <td> {{ compra.fecha_compra}}</td>
+                            <td> {{ compra.fecha_vencimiento}}</td>
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="{% url 'compras:listar_compra' %} " class="btn btn-secondary float-right " role="button " aria-pressed="true ">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Reactivar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Fin modal-->

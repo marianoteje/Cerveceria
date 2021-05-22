@@ -43,15 +43,11 @@ class eliminarCliente(DeleteView):
         object.activo = False
         object.save()
         return redirect('ventas:listar_cliente')
-
-
 class CreateVenta(CreateView):
     model = Ventas
     form_class = VentaForm
     template_name = 'crear_venta.html'
     success_url = reverse_lazy('ventas:crear_venta')
-
-
 class ListarVenta(ListView):
     model = Ventas
     queryset = Ventas.objects.filter(activo = True)
@@ -79,3 +75,14 @@ class EditarVenta(UpdateView):
     form_class = VentaForm
     template_name = 'editar_venta.html'
     success_url = reverse_lazy('ventas:listar_venta')
+
+
+class reactivarCliente(DeleteView):
+    model = Cliente
+    template_name = 'reactivar_cliente.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Cliente.objects.get (id = pk)
+        object.activo = True
+        object.save()
+        return redirect('ventas:listar_cliente')

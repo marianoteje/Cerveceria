@@ -1,0 +1,44 @@
+<!-- Modal -->
+
+
+<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">¿Esta seguro que quiere reactivar el ingrediente: {{ object.nombre }}?</h3>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'compras:reactivar_ingrediente' object.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                <table class="table" id="mi-tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Stock</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td> {{ ingrediente.id}} </td>
+                            <td> {{ ingrediente.nombre}} </td>
+                            <td> {{ ingrediente.stock}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Reactivar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Fin modal-->

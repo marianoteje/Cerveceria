@@ -112,6 +112,8 @@ class eliminarIngrediente(DeleteView):
         return redirect('compras:listar_ingrediente')
 
 
+
+
 class eliminarProveedor(DeleteView):
     model = Proveedor
     template_name = 'eliminar_proveedor.html'
@@ -119,5 +121,39 @@ class eliminarProveedor(DeleteView):
     def post(self, request, pk, *args, **kwargs):
         object = Proveedor.objects.get (id = pk)
         object.activo = False
+        object.save()
+        return redirect('compras:listar_proveedor')
+
+
+class reactivarCompra(DeleteView):
+    model = Compra
+    template_name = 'reactivar_compra.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Compra.objects.get (id = pk)
+        object.activa = True
+        object.save()
+        return redirect('compras:listar_compra')
+
+
+
+class reactivarIngrediente(DeleteView):
+    model = Ingrediente
+    template_name = 'reactivar_ingrediente.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Ingrediente.objects.get (id = pk)
+        object.activo = True
+        object.save()
+        return redirect('compras:listar_ingrediente')
+
+
+class reactivarProveedor(DeleteView):
+    model = Proveedor
+    template_name = 'reactivar_proveedor.html'
+
+    def post(self, request, pk, *args, **kwargs):
+        object = Proveedor.objects.get (id = pk)
+        object.activo = True
         object.save()
         return redirect('compras:listar_proveedor')

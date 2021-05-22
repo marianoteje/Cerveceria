@@ -1,0 +1,44 @@
+<!-- Modal -->
+
+
+<div class="modal-dialog modal-lg" role="document" style="background-color: gray;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">¿Esta seguro que quiere reactivar el barril con codigo: {{ object.codigo }}?</h3>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'produccion:reactivar_barril' object.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                <table class="table" id="mi-tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Codigo barril</th>
+                            <th scope="col">Capacidad</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td> {{ barril.id}} </td>
+                            <td> {{ barril.codigo}} </td>
+                            <td> {{ barril.capacidad}} </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Reactivar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Fin modal-->
