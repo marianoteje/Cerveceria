@@ -101,11 +101,20 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'ventas:listar_cliente' %}">
-                        Dashboard
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
                 </a>
-    
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="nav-link" href="{% url 'dashboard:proximosvencimientos' %}" id="navbarDropdownMenuLink">
+                            Proximos vencimientos
+                        </a>
+                        <a class="nav-link" href="{% url 'dashboard:ventasAClientes' %}">
+                            Ventas a un cliente
+                        </a>
+                        <a class="nav-link" href="{% url 'dashboard:produccionesDeUnMes' %}">
+                            Producciones de un mes
+                        </a>
+                    </div>
                 </li>
 
 

@@ -1,0 +1,76 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Listados 
+{% endblock title %} 
+{% block script %}
+
+
+{% endblock script %} 
+
+{% block content %}
+<h2>Listados de producciones en un mes</h2>
+<div id="container-fluid">
+    <div class="row">
+        <form method="GET">
+            <input style="display: none" type="text" class="form-control" name="buscar" id="input" value="{{request.GET.buscar}}">
+            <select class="form-select" aria-label="Default select example" id="select" onchange="ShowSelected()">
+                        <option value="01">Enero</option>
+                        <option value="02">Febrero</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Abril</option>
+                        <option value="05">Mayo</option>
+                        <option value="06">Junio</option>
+                        <option value="07">Julio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                        
+            </select>
+
+            <input style="display: none" type="text" class="form-control" name="buscar" id="input" value="{{request.GET.buscar}}">
+            <select class="form-select" aria-label="Default select example" id="select" onchange="ShowSelected()">
+                        <option selected>------------------</option>
+                            
+            </select>
+            <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
+            
+        </form>
+    </div>
+</div>
+{% if producciones %}
+<div class="row ">
+    <div class="col-12 ">
+        <div clas="table-responsive ">
+            <table class="table " id="mi-tabla">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Proveedor</th>
+                        <th>Ingrediente</th>
+                        <th>Comentario</th>
+                        <th>Cantidad</th>
+                        <th>Fecha de compra</th>
+                        <th>Fecha de vencimiento</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produccion in producciones %}
+
+                    <tr>
+                        <td> {{ produccion.id}} </td>
+
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock content %} 

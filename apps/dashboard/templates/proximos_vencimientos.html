@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Listados 
+{% endblock title %} 
+{% block script %}
+
+
+{% endblock script %} 
+
+{% block content %}
+<h2>Listados de compras proximas a vencerse</h2>
+<div id="container-fluid">
+    <div class="row">
+        
+    </div>
+</div>
+
+<div class="row ">
+    <div class="col-12 ">
+        <div clas="table-responsive ">
+            <table class="table " id="mi-tabla">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Proveedor</th>
+                        <th>Ingrediente</th>
+                        <th>Comentario</th>
+                        <th>Cantidad</th>
+                        <th>Fecha de compra</th>
+                        <th>Fecha de vencimiento</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for compra in compras %}
+
+                    <tr>
+                        <td> {{ compra.id}} </td>
+                        <td> {{ compra.id_proveedor.nombre}} </td>
+                        <td> {{ compra.id_ingrediente.nombre}} </td>
+                        <td> {{ compra.comentario}}</td>
+                        <td> {{ compra.cantidad}} </td>
+                        <td> {{ compra.fecha_compra}}</td>
+                        <td> {{ compra.fecha_vencimiento}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %} 

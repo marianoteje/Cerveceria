@@ -20,7 +20,7 @@ class Ingrediente (models.Model):
 
     def __str__(self):
         return self.nombre
-
+        return self.stock
 class Compra (models.Model):
     id_proveedor = models.ForeignKey(Proveedor, on_delete=models.PROTECT, verbose_name='Proveedor')
     id_ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, verbose_name='Ingrediente')
