@@ -4,16 +4,44 @@
 {% endblock title %} 
 {% block script %}
 
+    <script type="text/javascript">
+        function ShowSelectedMes()
+        {
+        /* Para obtener el texto */
+        var combo = document.getElementById("select");
+        var selected = combo.options[combo.selectedIndex].value;
+        console.log(selected);
+        var inputNombre = document.getElementById("input");
 
-{% endblock script %} 
+        inputNombre.value = selected;
+        }
+
+</script>
+<script type="text/javascript">
+    function ShowSelectedAño()
+    {
+    /* Para obtener el texto */
+    var combo = document.getElementById("selectAño");
+    var selected = combo.options[combo.selectedIndex].value;
+    console.log(selected);
+    var inputNombre = document.getElementById("inputAño");
+
+    inputNombre.value = selected;
+    }
+
+</script>
+
+{% endblock script %}
 
 {% block content %}
 <h2>Listados de producciones en un mes</h2>
 <div id="container-fluid">
     <div class="row">
         <form method="GET">
-            <input style="display: none" type="text" class="form-control" name="buscar" id="input" value="{{request.GET.buscar}}">
-            <select class="form-select" aria-label="Default select example" id="select" onchange="ShowSelected()">
+            <input style="display: none;" type="text" class="form-control" name="mes" id="input" value="{{request.GET.mes}}">
+            <label >Mes</label>
+            <select class="form-select" aria-label="Default select example" id="select" onchange="ShowSelectedMes()">
+                        <option selected>---------------------</option>        
                         <option value="01">Enero</option>
                         <option value="02">Febrero</option>
                         <option value="03">Marzo</option>
@@ -26,14 +54,24 @@
                         <option value="10">Octubre</option>
                         <option value="11">Noviembre</option>
                         <option value="12">Diciembre</option>
+            </select>
+
+            <input style="display: none;" type="text" class="form-control" name="anio" id="inputAño" value="{{request.GET.anio}}">
+            <label >Año</label>
+            <select class="form-select" aria-label="Default select example" name="anio" id="selectAño" onchange="ShowSelectedAño()">        
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
                         
             </select>
 
-            <input style="display: none" type="text" class="form-control" name="buscar" id="input" value="{{request.GET.buscar}}">
-            <select class="form-select" aria-label="Default select example" id="select" onchange="ShowSelected()">
-                        <option selected>------------------</option>
-                            
-            </select>
             <button id="aceptar" type="submit" class="btn btn-secondary btn-lg">Aceptar</button>
             
         </form>
@@ -46,14 +84,14 @@
             <table class="table " id="mi-tabla">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Proveedor</th>
-                        <th>Ingrediente</th>
-                        <th>Comentario</th>
-                        <th>Cantidad</th>
-                        <th>Fecha de compra</th>
-                        <th>Fecha de vencimiento</th>
-
+                        <th >#</th>
+                        <th >Descripcion</th>
+                        <th >Fecha</th>
+                        <th >Litros de agua usados</th>
+                        <th >Temperatura de macerado</th>
+                        <th >Tiempo de macerado</th>
+                        <th >Temperatura cocción</th>
+                        <th >Tiempo de cocción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,8 +99,13 @@
 
                     <tr>
                         <td> {{ produccion.id}} </td>
-
-
+                        <td> {{ produccion.descripcion}} </td>
+                        <td> {{ produccion.fecha_produccion}} </td>
+                        <td> {{ produccion.cantidad_agua}} </td>
+                        <td> {{ produccion.temperatura_maceracion}}</td>
+                        <td> {{ produccion.tiempo_maceracion}}</td>
+                        <td> {{ produccion.temperatura_coccion}} </td>
+                        <td> {{ produccion.tiempo_coccion}} </td>
 
                     </tr>
                     {% endfor %}

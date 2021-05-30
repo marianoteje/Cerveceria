@@ -44,7 +44,7 @@ class ListarIngrediente(ListView):
 
 class ListarCompra(ListView):
     model = Compra
-    queryset = Compra.objects.filter(activa = True)
+    queryset = Compra.objects.filter(activa = True).order_by('-id')
     context_object_name = 'compras'
     template_name = 'listar_compra.html'
 
@@ -63,7 +63,7 @@ class ListarIngredienteFull(ListView):
 
 class ListarCompraFull(ListView):
     model = Compra
-    queryset = Compra.objects.all()
+    queryset = Compra.objects.all().order_by('-id')
     context_object_name = 'compras'
     template_name = 'listar_compra.html'
 class listarProveedorNoActivos(ListView):

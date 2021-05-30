@@ -50,13 +50,13 @@ class CreateVenta(CreateView):
     success_url = reverse_lazy('ventas:crear_venta')
 class ListarVenta(ListView):
     model = Ventas
-    queryset = Ventas.objects.filter(activo = True)
+    queryset = Ventas.objects.filter(activo = True).order_by('-id')
     context_object_name = 'ventas'
     template_name = 'listar_ventas.html'
 
 class ListarVentaFull(ListView):
     model = Ventas
-    queryset = Ventas.objects.all()
+    queryset = Ventas.objects.all().order_by('-id')
     context_object_name = 'ventas'
     template_name = 'listar_ventas.html'
 

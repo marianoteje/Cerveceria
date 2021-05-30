@@ -45,13 +45,13 @@ class listarBarrilFull(ListView):
     template_name = 'listar_barril.html'
 class listarFermentado(ListView):
     model = Fermentado
-    queryset = Fermentado.objects.filter(activo = True)
+    queryset = Fermentado.objects.filter(activo = True).order_by('-id')
     context_object_name = 'fermentados'
     template_name = 'listar_fermentado.html'
 
 class listarFermentadoFull(ListView):
     model = Fermentado
-    queryset = Fermentado.objects.all()
+    queryset = Fermentado.objects.all().order_by('-id')
     context_object_name = 'fermentados'
     template_name = 'listar_fermentado.html'
 
@@ -70,13 +70,13 @@ class listarProduccionFull(ListView):
 
 class listarLote(ListView):
     model = Lote
-    queryset = Lote.objects.filter(activo = True)
+    queryset = Lote.objects.filter(activo = True).order_by('-id')
     context_object_name = 'lotes'
     template_name = 'listar_lote.html'
 
 class listarLoteFull(ListView):
     model = Lote
-    queryset = Lote.objects.all()
+    queryset = Lote.objects.all().order_by('-id')
     context_object_name = 'lotes'
     template_name = 'listar_lote.html'
 class editarBarril(UpdateView):

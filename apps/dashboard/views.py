@@ -30,10 +30,16 @@ def ventas_a_cliente(request):
 
 def producciones_de_un_mes(request):
     model = Produccion
-    querysetClientes = Cliente.objects.filter(activo = True)
-    querysetClienteSeleccionado = request.GET.get("buscar")
-    if querysetClienteSeleccionado != '':
-        queryset = Ventas.objects.all().filter(cliente = querysetClienteSeleccionado)
-        return render(request, 'producciones_de_un_mes.html', {'clientes': querysetClientes,'ventas': queryset})
-    else:
-        return render(request, 'producciones_de_un_mes.html', {'clientes': querysetClientes})
+    querysetMes = request.GET.get("mes")
+    querysetAño = request.GET.get("anio")
+ 
+    print(querysetAño)
+    
+    if querysetMes != '' and querysetAño == '' : 
+        querysetProducciones = Produccion.objects.all().filter(activo = True, fecha_produccion__month = querysetMes)
+        return render(request, 'producciones_de_un_mes.html', {'producciones': querysetProducciones})
+    if querysetMes != '' and querysetAño != '' : 
+        querysetProducciones = Produccion.objects.all().filter(activo = True, fecha_produccion__month = querysetMes, fecha_produccion__year = querysetAño)
+        return render(request, 'producciones_de_un_mes.html', {'producciones': querysetProducciones})
+    if querysetMes == '' and querysetAño == '' : 
+        return render(request, 'producciones_de_un_mes.html')
